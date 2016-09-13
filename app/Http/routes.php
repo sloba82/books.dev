@@ -11,6 +11,7 @@
 |
 */
 
+Route::post('/authenticate', 'Auth\AuthController@authenticate');
 Route::get('/', function () {
     return view('welcome');
 });
