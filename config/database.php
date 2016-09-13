@@ -1,4 +1,10 @@
 <?php
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$host = isset($url["host"]) ? $url["host"] : "127.0.0.1";
+$username = isset($url["user"]) ? $url["user"] : "root";
+$password = isset($url["pass"]) ? $url["pass"] : "root";
+$database = (isset($url["host"])) ? substr($url["path"], 1): "book";
 
 return [
 
@@ -54,11 +60,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $host,
+            'port' => "3306",
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
