@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\AuthModel;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,6 @@ class AuthModel extends Model
      */
     public static $validationRules = [
         'username' => 'required|email',
-        'password' => 'required|min:8|max:16'
+        'password' => 'required|min:2|max:16'
     ];
 }

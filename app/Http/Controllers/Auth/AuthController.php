@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\AuthModel\AuthModel;
-use App\User;
+use App\Models\AuthModel;
+use App\Repositories\User\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -35,48 +35,15 @@ class AuthController extends Controller
     protected $redirectTo = '/';
 
     /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
+     * AuthController constructor.
      */
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
     public function authenticate(Request $request)
     {
-        // grab credentials from the request
         $credentials = $request->all();
         if (empty($credentials)) {
             return response()->json(array('message' => trans('auth.empty')), 400);
@@ -87,19 +54,15 @@ class AuthController extends Controller
         }
 
         try {
+            $user = UserRepository::getUser($credentials);
 
-            $user = UserRepository->getUser($credentials);
-
-            // attempt to verify the credentials and create a token for the user
             if (!$token = JWTAuth::fromUser($user)) {
                 return response()->json(['message' => trans('auth.invalid_credentials')], 401);
             }
         } catch (JWTException $e) {
-            // something went wrong whilst attempting to encode the token
             return response()->json(['message' => 'auth.could_not_create_token'], 500);
         }
 
-        // all good so return the token
         return response()->json(compact('token'));
     }
 }
