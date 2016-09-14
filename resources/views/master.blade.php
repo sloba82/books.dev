@@ -247,6 +247,6 @@
 <script src="{{ URL::asset("app/scripts/controllers/SignOutCtrl.js") }}"></script>
 <script src="{{ URL::asset("app/scripts/controllers/HomeCtrl.js") }}"></script>
 <script src="{{ URL::asset("app/scripts/controllers/FrontendCtrl.js") }}"></script>
-</script>
+<script src="{{ URL::asset("app/scripts/services/UserFactory.js") }}"></script>
 </body>
 </html>
