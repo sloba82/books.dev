@@ -57,4 +57,15 @@ class UserRepository
         return $user->save();
     }
 
+    /**
+     * Method for getting user by id from db.
+     *
+     * @param int $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getUserById($id)
+    {
+        return UserModel::find($id);
+    }
+
 }

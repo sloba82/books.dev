@@ -98,7 +98,18 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $user = $this->userHandler->getUserById($id);
+        if (!$user)
+        {
+            return response()->json([ 'message' => trans('response.not_found') ], 404);
+        }
+
+        return response()->json($user, 200);
     }
 
     /**
