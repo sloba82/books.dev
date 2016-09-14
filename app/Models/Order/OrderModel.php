@@ -27,4 +27,15 @@ class OrderModel extends Model
         'books',
         'status',
     ];
+
+    /**
+     * Rules to be passed while creating new order.
+     *
+     * @var array
+     */
+    public static $rules = [
+        'user_id' => 'required|exists:users,id',
+        'books' => 'required|min:1|max:126',
+        'status' => 'required',
+    ];
 }

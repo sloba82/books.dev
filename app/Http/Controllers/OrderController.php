@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order\OrderModel;
 use App\Repositories\Order\OrderRepository;
 use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class OrderController
@@ -67,7 +69,25 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = UtilityHelpers::getUserFromJWT();
+        if (!$user)
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $params = $request->all();
+
+        $valid = Validator::make($params, OrderModel::$rules);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$this->orderHandler->createNewOrder($params, $user->id))
+        {
+            return response()->json([ 'message' => trans('response.not_created') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.created') ], 200);
     }
 
     /**
