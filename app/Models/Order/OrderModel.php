@@ -33,7 +33,17 @@ class OrderModel extends Model
      *
      * @var array
      */
-    public static $rules = [
+    public static $rulesCreate = [
+        'books' => 'required|min:1|max:126',
+        'status' => 'required',
+    ];
+
+    /**
+     * Rules to be passed while update new order.
+     *
+     * @var array
+     */
+    public static $rulesUpdate = [
         'user_id' => 'required|exists:users,id',
         'books' => 'required|min:1|max:126',
         'status' => 'required',

@@ -48,4 +48,15 @@ class OrderRepository
     {
         return OrderModel::find($id);
     }
+
+    public function updateOrder($params, $id)
+    {
+        $order = OrderModel::find($id);
+
+        $order->user_id = $params['user_id'];
+        $order->books = serialize($params['books']);
+        $order->status = $params['status'] ? $params['status'] : 1;
+
+        return $order->save();
+    }
 }

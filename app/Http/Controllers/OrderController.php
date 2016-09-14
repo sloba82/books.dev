@@ -77,7 +77,7 @@ class OrderController extends Controller
 
         $params = $request->all();
 
-        $valid = Validator::make($params, OrderModel::$rules);
+        $valid = Validator::make($params, OrderModel::$rulesCreate);
         if ($valid->fails()) {
             return response()->json(array('message' => trans('response.invalid')), 400);
         }
@@ -132,7 +132,24 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $params = $request->all();
+
+        $valid = Validator::make($params, OrderModel::$rulesUpdate);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$this->orderHandler->updateOrder($params, $id))
+        {
+            return response()->json([ 'message' => trans('response.not_updated') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.updated') ], 200);
     }
 
     /**
