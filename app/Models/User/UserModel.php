@@ -4,9 +4,16 @@ namespace App\Models\User;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * Class UserModel
+ * @package App\Models\User
+ */
 class UserModel extends Authenticatable
 {
 
+    /**
+     * @var string $table
+     */
     protected $table = "users";
 
     /**
@@ -37,7 +44,7 @@ class UserModel extends Authenticatable
     ];
 
     /**
-     * Rules to be passed while creating new user
+     * Rules to be passed while creating new user.
      *
      * @var array
      */
@@ -49,11 +56,11 @@ class UserModel extends Authenticatable
         'address' => 'required|min:8|max:32',
         'city' => 'required|min:2|max:16',
         'medical_institution' => 'required|min:8|max:64',
-        'role' => 'required|integer|exists:user_roles,id',
+//        'role' => 'required|integer|exists:user_roles,id',
     ];
 
     /**
-     * Rules to be passed while sending mail
+     * Rules to be passed while sending mail.
      *
      * @var array $sendMailRules
      */
@@ -63,7 +70,7 @@ class UserModel extends Authenticatable
     ];
 
     /**
-     * Rules to be passed while requesting reset password
+     * Rules to be passed while requesting reset password.
      *
      * @var array
      */
@@ -72,7 +79,7 @@ class UserModel extends Authenticatable
     ];
 
     /**
-     * Rules to be passed while resetting password
+     * Rules to be passed while resetting password.
      *
      * @var array
      */

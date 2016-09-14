@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User\UserModel;
 use App\Repositories\User\UserRepository;
 use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class UserController
@@ -68,7 +70,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $params = $request->all();
+
+        $valid = Validator::make($params, UserModel::$rules);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$this->userHandler->createNewUser($params))
+        {
+            return response()->json([ 'message' => trans('response.not_created') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.created') ], 200);
     }
 
     /**
