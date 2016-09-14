@@ -15,18 +15,15 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->truncate();
         DB::table('users')->insert([
-            'photo' => 'test',
-            'title_eng' => 'title eng test',
-            'title_srb' => 'title srb test',
-            'discription_short' => 'opis kratko test',
-            'discription_long' => 'opis dugo test',
-            'autor' => ' autor test',
-            'price' => 2222,
-            'page_num' => 2580,
-            'deadline' => 'rok test',
-            'book_pdf' => 'pdf link',
-            'book_cover' => 'book_cover'
-
+            'username'  => 'user@user.com',
+            'password'  => md5('user'),
+            'first_name' => 'test',
+            'last_name' => 'test',
+            'address' => 'test',
+            'city' => 'test',
+            'medical_institution' => 'test',
+            'role'      => 1,
+            'active'	=> 1,
         ]);
     }
 }

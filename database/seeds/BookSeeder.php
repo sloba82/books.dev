@@ -15,15 +15,17 @@ class BookSeeder extends Seeder
     {
         DB::table('books')->truncate();
         DB::table('books')->insert([
-            'username'  => 'user@user.com',
-            'password'  => md5('user'),
-            'first_name' => 'test',
-            'last_name' => 'test',
-            'address' => 'test',
-            'city' => 'test',
-            'medical_institution' => 'test',
-            'role'      => 1,
-            'active'	=> 1,
+            'photo'  => 'photo path',
+            'title_eng'  => 'title eng',
+            'title_srb' => 'title srb',
+            'discription_short' => 'discription short',
+            'discription_long' => 'description long',
+            'autor' => 'autor',
+            'price' => 2000,
+            'page_num'      => 1500,
+            'deadline'	=> 'deadline',
+            'book_pdf'      => 'pdf path',
+            'book_cover'	=> 'boock cover',
         ]);
     }
 }
