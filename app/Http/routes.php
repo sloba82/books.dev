@@ -20,18 +20,23 @@ Route::get('/backend/', 'Application\AppController@provideBackend');
 Route::get('/views/{viewName}', 'Application\AppController@choseSubTemplate');
 Route::get('/frontend/{viewName}', 'Application\AppController@frontendTemplate');
 //Request reset password
-Route::post('/requestresetpassword', 'User\UserController@requestresetpassword');
+Route::post('/requestresetpassword', 'UserController@requestresetpassword');
 //Reset password
-Route::post('/resetpassword', 'User\UserController@resetpassword');
+Route::post('/resetpassword', 'UserController@resetpassword');
 Route::get('/resetpassword/{secret_token}', function ($secret_token) {
     return view('password-recovery', ['secret_token'=>$secret_token]);
 });
-Route::post('/checkEmailExists', 'User\UserController@checkEmail');
+Route::post('/checkEmailExists', 'UserController@checkEmail');
+//Home
+Route::get('/home', 'BookController@index');
+//TODO all functionality for home page with frontend!
 
 Route::group(['middleware' => ['jwt.auth']], function () {
 
 
     Route::get('/profile', 'UserController@getUserFromJWT');
+    Route::get('/basket', 'OrderController@getBasket');
+    //TODO all functionality for basket page with frontend!
 
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');

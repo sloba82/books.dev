@@ -65,7 +65,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
 
-    $urlRouterProvider.otherwise('/signIn');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
 
