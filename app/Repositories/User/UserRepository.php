@@ -2,6 +2,7 @@
 
 namespace App\Repositories\User;
 
+use App\Models\Book\BookModel;
 use App\Models\User\UserModel;
 
 /**
@@ -72,6 +73,7 @@ class UserRepository
         if ($user)
         {
             $user->orders;
+            $this->getBooksForOrder($user->orders);
         }
 
         return $user;
@@ -100,6 +102,20 @@ class UserRepository
         $user->active = $params['active'];
 
         return $user->save();
+    }
+
+    /**
+     * Method for getting books models from orders.
+     *
+     * @param \Illuminate\Database\Eloquent\Collection $orders
+     */
+    private function getBooksForOrder($orders)
+    {
+        foreach ($orders as $order)
+        {
+            $booksIds = unserialize($order->books);
+            $order->books = BookModel::whereIn('id', $booksIds)->get();
+        }
     }
 
 }
