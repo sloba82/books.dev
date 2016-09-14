@@ -167,14 +167,12 @@ class UserController extends Controller
     /**
      * Method for getting user converted from JWTToken, and his relations orders.
      *
-     * @param bool $print_reponse
-     * @return object $user
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function getUserFromJWT($print_reponse = true)
+    public function getUserFromJWT()
     {
         $user =  json_decode(UtilityHelpers::getUserFromJWT());
-        $user->orders;
 
-        return $user;
+        return response()->json($user, 200);
     }
 }

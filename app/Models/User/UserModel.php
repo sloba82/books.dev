@@ -43,6 +43,11 @@ class UserModel extends Authenticatable
         'token',
     ];
 
+    public static $getUserRules = [
+        'username' => 'required|email',
+        'password' => 'required|min:2|max:16'
+    ];
+
     /**
      * Rules to be passed while creating new user.
      *

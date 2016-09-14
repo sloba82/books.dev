@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\AuthModel;
+use App\Models\User\UserModel;
 use App\Repositories\User\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -58,7 +58,7 @@ class AuthController extends Controller
         if (empty($credentials)) {
             return response()->json(array('message' => trans('auth.empty')), 400);
         }
-        $valid = Validator::make($credentials, AuthModel::$validationRules);
+        $valid = Validator::make($credentials, UserModel::$getUserRules);
         if ($valid->fails()) {
             return response()->json(array('message' => trans('auth.invalid')), 400);
         }

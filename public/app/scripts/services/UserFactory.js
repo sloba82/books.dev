@@ -8,7 +8,7 @@
 app.factory('UserFactory', function($http,$rootScope) {
     return {
         getAllUserData : function(){
-            return $http.get('/user/profile');
+            return $http.get('/profile');
         },
     };
 });

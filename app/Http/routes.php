@@ -31,7 +31,7 @@ Route::post('/checkEmailExists', 'User\UserController@checkEmail');
 Route::group(['middleware' => ['jwt.auth']], function () {
 
 
-    Route::get('/user/profile', 'User\UserController@getUserFromJWT');
+    Route::get('/profile', 'UserController@getUserFromJWT');
 
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
