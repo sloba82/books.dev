@@ -103,13 +103,13 @@ class OrderController extends Controller
             return response()->json([ 'message' => trans('response.user') ], 400);
         }
 
-        $user = $this->orderHandler->getOrderById($id);
-        if (!$user)
+        $order = $this->orderHandler->getOrderById($id);
+        if (!$order)
         {
             return response()->json([ 'message' => trans('response.not_found') ], 404);
         }
 
-        return response()->json($user, 200);
+        return response()->json($order, 200);
     }
 
     /**

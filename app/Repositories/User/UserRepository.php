@@ -60,12 +60,21 @@ class UserRepository
     /**
      * Method for getting user by id from db.
      *
+     * If user model is found, method returns user model with relational order models.
+     *
      * @param int $id
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function getUserById($id)
     {
-        return UserModel::find($id);
+        $user = UserModel::find($id);
+
+        if ($user)
+        {
+            $user->orders;
+        }
+
+        return $user;
     }
 
     /**

@@ -41,14 +41,30 @@ class OrderRepository
     /**
      * Method for getting order by id from db.
      *
+     * If order model is found, method returns order model with relational user model.
+     *
      * @param int $id
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function getOrderById($id)
     {
-        return OrderModel::find($id);
+        $order = OrderModel::find($id);
+
+        if ($order)
+        {
+            $order->user;
+        }
+
+        return $order;
     }
 
+    /**
+     * Method for updating order in db.
+     *
+     * @param array $params
+     * @param int $id
+     * @return bool
+     */
     public function updateOrder($params, $id)
     {
         $order = OrderModel::find($id);

@@ -88,4 +88,14 @@ class UserModel extends Authenticatable
         'password' => 'required|min:5|max:32',
         'confirm_password' => 'required|same:password',
     ];
+
+    /**
+     * Relation: one user model owns any amount of order models.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order\OrderModel', 'user_id');
+    }
 }

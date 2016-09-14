@@ -48,4 +48,14 @@ class OrderModel extends Model
         'books' => 'required|min:1|max:126',
         'status' => 'required',
     ];
+
+    /**
+     * Relation: one order model belongs to one user model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User\UserModel');
+    }
 }
