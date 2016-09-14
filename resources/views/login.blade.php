@@ -16,14 +16,14 @@
                            class="form-control"
                            ng-model="email"
                            placeholder="Email">
-<!--                    <span class="text-danger"-->
-<!--                          ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.required">-->
-<!--                {{ trans('auth.required') }}-->
-<!--            </span>-->
-<!--                    <span class="text-danger"-->
-<!--                          ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.email">-->
-<!--                {{ trans('auth.invalid_email') }}-->
-<!--            </span>-->
+                    <span class="text-danger"
+                          ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.required">
+                {{ trans('auth.required') }}
+            </span>
+                    <span class="text-danger"
+                          ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.email">
+                {{ trans('auth.invalid_email') }}
+            </span>
                 </div>
                 <div class="form-group">
                     <label for="password">{{ trans('login.password') }}</label>
@@ -34,15 +34,15 @@
                            class="form-control"
                            placeholder="Password"
                            ng-model="password">
-<!--                    <span class="text-danger"-->
-<!--                          ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.required">-->
-<!--                {{ trans('auth.required') }}-->
-<!--            </span>-->
+                    <span class="text-danger"
+                          ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.required">
+                {{ trans('auth.required') }}
+            </span>
                 </div>
                 <div class="form-group">
                     <button id="submit" type="submit"
                             value="submit"
-<!--                            ng-disabled="form.$invalid"-->
+                            ng-disabled="form.$invalid"
                             class="btn btn-lg btn-primary btn-block">{{ trans('login.login') }}
                     </button>
                 </div>
