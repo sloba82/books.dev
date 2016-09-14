@@ -68,6 +68,13 @@ class UserRepository
         return UserModel::find($id);
     }
 
+    /**
+     * Method for updating user in db.
+     *
+     * @param array $params
+     * @param int $id
+     * @return bool
+     */
     public function updateUser($params, $id)
     {
         $user = UserModel::find($id);
@@ -84,7 +91,6 @@ class UserRepository
         $user->active = $params['active'];
 
         return $user->save();
-
     }
 
 }
