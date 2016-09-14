@@ -68,4 +68,23 @@ class UserRepository
         return UserModel::find($id);
     }
 
+    public function updateUser($params, $id)
+    {
+        $user = UserModel::find($id);
+
+        $user->username = $params['username'];
+        $user->password = md5($params['password']);
+        $user->first_name = $params['first_name'];
+        $user->last_name = $params['last_name'];
+        $user->address = $params['address'];
+        $user->city = $params['city'];
+        $user->medical_institution = $params['medical_institution'];
+        $user->role = $params['role'];
+        $user->token = $params['token'];
+        $user->active = $params['active'];
+
+        return $user->save();
+
+    }
+
 }
