@@ -13,11 +13,13 @@
 
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
 
-Route::group(['middleware' => ['jwt.auth', 'except' => 'authenticate']], function () {
+Route::group(['middleware' => ['jwt.auth']], function () {
 
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::resource('user', 'UserController');
 
 });
 
