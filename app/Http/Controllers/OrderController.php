@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Order\OrderRepository;
+use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 
 /**
  * Class OrderController
@@ -12,6 +12,22 @@ use App\Http\Requests;
  */
 class OrderController extends Controller
 {
+
+    /**
+     * @var OrderRepository
+     */
+    protected $orderHandler;
+
+
+    /**
+     * OrderController constructor.
+     *
+     * @param OrderRepository $orderRepository
+     */
+    public function __construct(OrderRepository $orderRepository)
+    {
+        $this->orderHandler = new $orderRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +35,18 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $orders = $this->orderHandler->getAllOrders();
+        if (empty($orders))
+        {
+            return response()->json(['message' => trans('response.nodata')], 404);
+        }
+
+        return response()->json($orders, 200);
     }
 
     /**
