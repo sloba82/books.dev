@@ -37,4 +37,15 @@ class OrderRepository
 
         return $order->save();
     }
+
+    /**
+     * Method for getting order by id from db.
+     *
+     * @param int $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getOrderById($id)
+    {
+        return OrderModel::find($id);
+    }
 }

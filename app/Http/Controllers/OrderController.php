@@ -98,7 +98,18 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $user = $this->orderHandler->getOrderById($id);
+        if (!$user)
+        {
+            return response()->json([ 'message' => trans('response.not_found') ], 404);
+        }
+
+        return response()->json($user, 200);
     }
 
     /**
