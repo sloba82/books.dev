@@ -11,15 +11,16 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
 
 Route::group(['middleware' => ['jwt.auth']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
     Route::resource('user', 'UserController');
+    Route::resource('order', 'OrderController');
 
 });
 
