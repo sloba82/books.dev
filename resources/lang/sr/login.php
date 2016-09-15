@@ -17,7 +17,7 @@ return [
     'password' => 'Lozinka',
     'login' => 'Ulogujte se',
     'forgotpass' => 'Zaboravljena lozinka',
-    'invalid_email' => 'Unesite validan emai',
+    'invalid_email' => 'Unesite validan email',
     'required' => 'Polje je obavezno'
 
 ];
