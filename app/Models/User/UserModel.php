@@ -80,7 +80,7 @@ class UserModel extends Authenticatable
      * @var array
      */
     public static $requestResetPasswordRules = [
-        'username' => 'required|email|max:32',
+        'username' => 'required|email|exists:users,username|max:32',
     ];
 
     /**

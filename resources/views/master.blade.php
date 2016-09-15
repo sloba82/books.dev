@@ -11,18 +11,14 @@
     <body ng-controller="HomeCtrl" ng-cloak>
 
         <div ng-if="isAuthenticated()" ng-init="init()"></div>
-        <div class="row">
-            <div>
-                <div>
-                    <ul>
-                        <li ng-click="changeProfileClass()" ng-if="isAuthenticated()"><a href="#/profile">
-                                {{ trans('master.profile') }}</a></li>
-                        <li ng-if="isAuthenticated()"><a href="#/contact">{{ trans('master.contact') }}</a></li>
-                        <li ng-if="isAuthenticated()"><a href="#/basket">{{ trans('master.basket') }}</a></li>
-                        <li ng-if="isAuthenticated()"><a href="#/signOut">{{ trans('master.signout') }}</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div ng-if="isAuthenticated()"
+            <ul>
+                <li><a href="#/profile">
+                        {{ trans('master.profile') }}</a></li>
+                <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
+                <li><a href="#/basket">{{ trans('master.basket') }}</a></li>
+                <li><a href="#/signOut">{{ trans('master.signout') }}</a></li>
+            </ul>
         </div>
 
         <div ng-if="isAuthenticated()">
@@ -80,6 +76,6 @@
         <script src="{{ URL::asset("app/scripts/controllers/SignOutCtrl.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/controllers/HomeCtrl.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/services/UserFactory.js") }}"></script>
-        <script></script>
+        <script src="{{ URL::asset("app/scripts/controllers/UserCtrl.js") }}">></script>
     </body>
 </html>

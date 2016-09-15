@@ -118,4 +118,29 @@ class UserRepository
         }
     }
 
+    /**
+     * Method for getting user by email.
+     *
+     * @param string $email
+     *
+     * @return \Illuminate\Database\Eloquent\Model||null
+     */
+    public function getUserByEmail($email)
+    {
+        return UserModel::where('username', $email)
+            ->first();
+    }
+
+    /**
+     * Method for setting token for user
+     *
+     * @param string $token
+     * @param int $id
+     */
+    public function setResetPasswordToken($token, $id)
+    {
+        UserModel::where('id', $id)
+            ->update(['token' => $token]);
+    }
+
 }

@@ -1,6 +1,6 @@
-<div class="center">
-    <div class="row">
-        <fieldset class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-controller="SignInCtrl">
+<div>
+    <div>
+        <fieldset ng-controller="SignInCtrl">
 
             <legend>{{ trans('login.loginform') }}</legend>
             <form name="form" id="sign-in-form"

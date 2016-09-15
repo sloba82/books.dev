@@ -54,7 +54,8 @@ app.run(function ($rootScope, $window) {
      *
      * @type {{}}
      */
-    $rootScope.user = ($window.localStorage.getItem('user') != null ) ? JSON.parse($window.localStorage.getItem('user')) : null;
+    $rootScope.user =
+        ($window.localStorage.getItem('user') != null ) ? JSON.parse($window.localStorage.getItem('user')) : null;
 });
 
 /**
@@ -71,6 +72,8 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
 
         .state('signIn', {url: '/signIn', templateUrl: '/views/signIn.html', resolve: loginCheck})
         .state('signOut', {url: '/signOut', template: 'signIn', controller: 'SignOutCtrl', resolve: authCheck})
+        .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
+        .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {
@@ -106,7 +109,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     // Auth config
     $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
     $authProvider.loginOnSignup = true;
-    $authProvider.loginRedirect = '/dashboard';
+    $authProvider.loginRedirect = '/';
     $authProvider.logoutRedirect = '/';
     $authProvider.signupRedirect = '/';
     $authProvider.loginUrl = '/authenticate';

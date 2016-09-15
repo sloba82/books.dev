@@ -175,4 +175,52 @@ class UserController extends Controller
 
         return response()->json($user, 200);
     }
+
+
+    /**
+     * Method for requesting reset password
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function requestResetPassword(Request $request)
+    {
+        $params = $request->all();
+
+        $validator = Validator::make($params, UserModel::$requestResetPasswordRules);
+        if ($validator->fails())
+        {
+            return response()->json([ 'message' => trans('login.please_send_email') ], 400);
+        }
+
+        $user = $this->userHandler->getUserByEmail($params['username']);
+
+        if ($user !== null)
+        {
+            try {
+                $token = md5(uniqid(time(), true));
+                $this->userHandler->setResetPasswordToken($token, $user->id);
+                $email = [
+                    'message' => 'Please follow the link to reset your password: ' . url('/resetpassword/' . $token),
+                    'from'    => 'zteblade3.dm@gmail.com',
+                    'to'      => $params['username'],
+                    'subject' => 'Request for password reset.'
+                ];
+                UtilityHelpers::sendMail($email);
+
+            } catch (\Exception $e)
+            {
+                return response()->json([ 'message' => trans('response.error') ], 500);
+            }
+            return response()->json(['message' => trans('login.link_to_change_pass')], 200);
+        }
+        return response()->json([ 'message' => trans('login.user_not_found') ], 400);
+    }
+
+    public function passwordRecovery(Request $request, $token)
+    {
+
+    }
+
 }
