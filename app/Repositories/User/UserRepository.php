@@ -132,7 +132,7 @@ class UserRepository
     }
 
     /**
-     * Method for setting token for user
+     * Method for setting token for user.
      *
      * @param string $token
      * @param int $id
@@ -141,6 +141,21 @@ class UserRepository
     {
         UserModel::where('id', $id)
             ->update(['token' => $token]);
+    }
+
+    /**
+     * Method for changing user password in db.
+     *
+     * @param array $params
+     * @return bool
+     */
+    public function resetPassword($params)
+    {
+        $user = UserModel::where('token', $params['token'])->first();
+
+        $user->password = md5($params['password']);
+
+        return $user->save();
     }
 
 }

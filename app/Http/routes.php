@@ -23,9 +23,10 @@ Route::get('/frontend/{viewName}', 'Application\AppController@frontendTemplate')
 Route::post('/requestresetpassword', 'UserController@requestresetpassword');
 //Reset password
 Route::post('/resetpassword', 'UserController@resetpassword');
-Route::get('/resetpassword/{secret_token}', function ($secret_token) {
+Route::get('/password-recover/{secret_token}', function ($secret_token) {
     return view('password-recovery', ['secret_token'=>$secret_token]);
 });
+//Check if mail exists
 Route::post('/checkEmailExists', 'UserController@checkEmail');
 //Home
 Route::get('/home', 'BookController@index');

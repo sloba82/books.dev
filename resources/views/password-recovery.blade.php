@@ -1,4 +1,16 @@
-<div class="container" ng-controller="ResetPasswordCtrl">
+<!DOCTYPE html>
+<html ng-app="uiResetPassword">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Password recovery</title>
+</head>
+<body ng-controller="ResetPasswordCtrl">
+
+
+<div class="container">
     <div class="row">
         <div class="center">
             <fieldset class="col-lg-4 col-lg-offset-4">
@@ -64,3 +76,31 @@
     </div>
 
 </div>
+
+
+<!-- END CONTAINER -->
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="{{ URL::asset("app/bower_components/angular/angular.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-resource/angular-resource.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-messages/angular-messages.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-animate/angular-animate.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-strap/dist/angular-strap.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-strap/dist/angular-strap.tpl.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-route/angular-route.js") }}"></script>
+<script src="{{ URL::asset("app/bower_components/angular-cookies/angular-cookies.js") }}"></script>
+
+<script src="{{ URL::asset("app/bower_components/ui-router/release/angular-ui-router.js") }}"></script>
+
+
+<script src="{{ URL::asset("app/lib/satellizer.js") }}"></script>
+
+<script src="{{ URL::asset("app/scripts/resetPassword.js") }}"></script>
+
+</body>
+</html>

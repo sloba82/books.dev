@@ -202,7 +202,7 @@ class UserController extends Controller
                 $token = md5(uniqid(time(), true));
                 $this->userHandler->setResetPasswordToken($token, $user->id);
                 $email = [
-                    'message' => 'Please follow the link to reset your password: ' . url('/resetpassword/' . $token),
+                    'message' => 'Please follow the link to reset your password: ' . url('/password-recover/' . $token),
                     'from'    => 'zteblade3.dm@gmail.com',
                     'to'      => $params['username'],
                     'subject' => 'Request for password reset.'
@@ -218,8 +218,28 @@ class UserController extends Controller
         return response()->json([ 'message' => trans('login.user_not_found') ], 400);
     }
 
-    public function passwordRecovery(Request $request, $token)
+    /**
+     * Method for reset password
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function resetPassword(Request $request)
     {
+        $params = $request->all();
+
+        $validator = Validator::make($params, UserModel::$resetPasswordRules);
+        if ($validator->fails())
+        {
+            return response()->json([ 'message' => trans('response.invalid')], 400);
+        }
+        if ($this->userHandler->resetPassword($params))
+        {
+            return response()->json(['message'=> trans('response.error')], 500);
+        }
+
+        return response()->json(['message'=> trans('response.success')], 200);
 
     }
 
