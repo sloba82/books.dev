@@ -2,13 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Book\BookRepository;
 use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+
 
 class BookController extends Controller
 {
+
+    /**
+     * @var BookRepository
+     */
+    protected $bookHandler;
+
+
+    /**
+     * UserController constructor.
+     *
+     * @param BookRepository $bookRepository
+     */
+    public function __construct(BookRepository $bookRepository)
+    {
+        $this->bookHandler = new $bookRepository;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -22,13 +41,13 @@ class BookController extends Controller
             return response()->json([ 'message' => trans('response.user') ], 400);
         }
 
-        $orders = $this->orderHandler->getAllOrders();
-        if (empty($orders))
+        $books = $this->bookHandler->getAllBooks();
+        if (empty($books))
         {
             return response()->json(['message' => trans('response.nodata')], 404);
         }
 
-        return response()->json($orders, 200);
+        return response()->json($books, 200);
     }
 
     /**

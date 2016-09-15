@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Book;
 
-use App\Models\Order\BookModel;
+use App\Models\Book\BookModel;
 
 /**
  * Class BookRepository
@@ -10,6 +10,14 @@ use App\Models\Order\BookModel;
  */
 class BookRepository
 {
-
+    /**
+     * Method for getting all books from db.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAllBooks()
+    {
+        return BookModel::all();
+    }
 
 }
