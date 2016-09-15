@@ -18,11 +18,11 @@
                            placeholder="Email">
                     <span class="text-danger"
                           ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.required">
-                {{ trans('auth.required') }}
+                {{ trans('login.required') }}
             </span>
                     <span class="text-danger"
                           ng-show="(form.email.$dirty || form.$submitted) && form.email.$error.email">
-                {{ trans('auth.invalid_email') }}
+                {{ trans('login.invalid_email') }}
             </span>
                 </div>
                 <div class="form-group">
@@ -36,7 +36,7 @@
                            ng-model="password">
                     <span class="text-danger"
                           ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.required">
-                {{ trans('auth.required') }}
+                {{ trans('login.required') }}
             </span>
                 </div>
                 <div class="form-group">
