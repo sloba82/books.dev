@@ -49,7 +49,7 @@
             </form>
             <hr/>
             <div class="text-right">
-                <a href='#/forgot-password'>{{ trans('passwords.forgotpass') }}</a>
+                <a href='#/forgot-password'>{{ trans('login.forgotpass') }}</a>
             </div>
 
         </fieldset>
