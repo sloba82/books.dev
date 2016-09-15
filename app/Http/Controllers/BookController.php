@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -15,7 +16,19 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $orders = $this->orderHandler->getAllOrders();
+        if (empty($orders))
+        {
+            return response()->json(['message' => trans('response.nodata')], 404);
+        }
+
+        return response()->json($orders, 200);
     }
 
     /**
