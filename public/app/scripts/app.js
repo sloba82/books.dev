@@ -21,7 +21,7 @@ var authCheck = {
         var deferred = $q.defer();
 
         if (!$auth.isAuthenticated()) {
-            $location.path('/signIn');
+            $location.path('/home');
         } else {
             deferred.resolve();
         }
@@ -35,7 +35,7 @@ var loginCheck = {
         var deferred = $q.defer();
 
         if ($auth.isAuthenticated()) {
-            !$location.path('/signIn');
+            !$location.path('/home');
         } else {
             deferred.resolve();
         }
@@ -66,7 +66,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
 
-    $urlRouterProvider.otherwise('/signIn');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
 
@@ -74,6 +74,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('signOut', {url: '/signOut', template: 'signIn', controller: 'SignOutCtrl', resolve: authCheck})
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
+        .state('home', {url: '/home', templateUrl: '/views/home.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {

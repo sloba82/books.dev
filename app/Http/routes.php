@@ -29,7 +29,7 @@ Route::get('/password-recover/{secret_token}', function ($secret_token) {
 //Check if mail exists
 Route::post('/checkEmailExists', 'UserController@checkEmail');
 //Home
-Route::get('/home', 'BookController@index');
+Route::get('/home', 'HomeController@home');
 //TODO all functionality for home page with frontend!
 
 Route::group(['middleware' => ['jwt.auth']], function () {
