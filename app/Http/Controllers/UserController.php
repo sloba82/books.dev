@@ -234,7 +234,7 @@ class UserController extends Controller
         {
             return response()->json([ 'message' => trans('response.invalid')], 400);
         }
-        if ($this->userHandler->resetPassword($params))
+        if (!$this->userHandler->resetPassword($params))
         {
             return response()->json(['message'=> trans('response.error')], 500);
         }
