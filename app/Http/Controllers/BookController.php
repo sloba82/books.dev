@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book\BookModel;
 use App\Repositories\Book\BookRepository;
 use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
@@ -68,7 +68,25 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = UtilityHelpers::getUserFromJWT();
+        if (!$user)
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $params = $request->all();
+
+        $valid = Validator::make($params, BookModel::$rules);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$this->bookHandler->createNewBook($params))
+        {
+            return response()->json([ 'message' => trans('response.not_created') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.created') ], 200);
     }
 
     /**

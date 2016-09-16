@@ -27,4 +27,23 @@ class BookModel extends Model
         'book_pdf',
         'book_cover'
     ];
+
+    /**
+     * Rules to be passed while creating new book.
+     *
+     * @var array
+     */
+    public static $rules = [
+        'photo' => 'required|max:256',
+        'title_eng' => 'required|max:256',
+        'title_srb' => 'required|max:256',
+        'discription_short' => 'required',
+        'discription_long' => 'required',
+        'autor' => 'required|max:512',
+        'price' => 'required',
+        'page_num' => 'required',
+        'deadline' => 'required|max:32',
+        'book_pdf' => 'required|max:256',
+        'book_cover' => 'required|max:32'
+    ];
 }

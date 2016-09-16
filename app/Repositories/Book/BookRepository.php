@@ -20,4 +20,28 @@ class BookRepository
         return BookModel::all();
     }
 
+    /**
+     * Method for creating new book in db.
+     *
+     * @param array $params
+     * @return bool
+     */
+    public function createNewBook($params)
+    {
+        $book = new BookModel();
+
+        $book->photo = $params['photo'];
+        $book->title_eng = $params['title_eng'];
+        $book->title_srb =$params['title_srb'];
+        $book->discription_short = $params['discription_short'];
+        $book->discription_long = $params['discription_long'];
+        $book->autor = $params['autor'];
+        $book->price = $params['price'];
+        $book->page_num = $params['page_num'];
+        $book->deadline = $params['deadline'];
+        $book->book_pdf = $params['book_pdf'];
+        $book->book_cover = $params['book_cover'];
+
+        return $book->save();
+    }
 }
