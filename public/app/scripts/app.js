@@ -74,7 +74,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('signOut', {url: '/signOut', template: 'signIn', controller: 'SignOutCtrl', resolve: authCheck})
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
-        .state('home', {url: '/home', templateUrl: '/views/frontend/home.html'})
+        .state('home', {url: '/home', templateUrl: '/views/home.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {
@@ -100,7 +100,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
                 if (rejection.status === 401) {
                     var $auth = $injector.get('$auth');
                     $auth.logout();
-                    $injector.get('$state').go('signIn');
+                    $injector.get('$state').go('home');
                 }
                 return $q.reject(rejection);
             }
