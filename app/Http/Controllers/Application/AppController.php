@@ -30,6 +30,8 @@ class AppController extends Controller
         switch ($viewName){
             case 'home.html':
                 return view('home');
+            case 'book-view.html':
+                return view('book-view');
             case 'signIn.html':
                 return view('login');
             case 'forgot-password.html':

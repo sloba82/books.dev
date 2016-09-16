@@ -75,6 +75,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
         .state('home', {url: '/home', templateUrl: '/views/home.html'})
+        .state('book-view', {url: '/book/{id}', templateUrl: '/views/book-view.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {

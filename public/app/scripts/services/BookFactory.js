@@ -10,5 +10,8 @@ app.factory('BookFactory', function($http) {
         getAllBooks : function(){
             return $http.get('/book');
         },
+        getBook : function(id){
+            return $http.get('/book/' + id);
+        },
     };
 });
