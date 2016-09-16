@@ -41,6 +41,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
+    Route::resource('book', 'BookController');
 
 });
 
