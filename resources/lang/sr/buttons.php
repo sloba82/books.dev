@@ -27,4 +27,5 @@ return [
 	'send'   => 'Pošalji',
 	'reserve'=> 'Rezerviši',
 	'details'=> 'Detalji',
+    'order' => 'Poruči'
 ];

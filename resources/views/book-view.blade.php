@@ -32,5 +32,6 @@
                 [[book.book_cover]]
             </li>
         </ul>
+        <button>{{ trans('buttons.order') }}</button>
     </div>
 </div>
