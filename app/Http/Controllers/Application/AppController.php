@@ -28,6 +28,8 @@ class AppController extends Controller
     public function choseSubTemplate($viewName)
     {
         switch ($viewName){
+            case 'home.html':
+                return view('home');
             case 'signIn.html':
                 return view('login');
             case 'forgot-password.html':

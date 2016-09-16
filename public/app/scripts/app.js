@@ -1,6 +1,6 @@
 'use strict';
 
-var appName = 'Medical Books - ';
+var appName = 'Medical Books - uiApp';
 /**
  * The application.
  */
@@ -74,7 +74,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('signOut', {url: '/signOut', template: 'signIn', controller: 'SignOutCtrl', resolve: authCheck})
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
-        .state('home', {url: '/home', templateUrl: '/views/home.html'})
+        .state('home', {url: '/home', templateUrl: '/views/frontend/home.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {
