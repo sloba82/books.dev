@@ -97,7 +97,18 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $book = $this->bookHandler->getBookById($id);
+        if (!$book)
+        {
+            return response()->json([ 'message' => trans('response.not_found') ], 404);
+        }
+
+        return response()->json($book, 200);
     }
 
     /**
@@ -120,7 +131,24 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (!UtilityHelpers::getUserFromJWT())
+        {
+            return response()->json([ 'message' => trans('response.user') ], 400);
+        }
+
+        $params = $request->all();
+
+        $valid = Validator::make($params, BookModel::$rules);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$this->bookHandler->updateBook($params, $id))
+        {
+            return response()->json([ 'message' => trans('response.not_updated') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.updated') ], 200);
     }
 
     /**
