@@ -13,8 +13,8 @@
         <div ng-if="isAuthenticated()" ng-init="init()"></div>
         <div ng-if="isAuthenticated()"
             <ul>
-                <li><a href="#/profile">
-                        {{ trans('master.profile') }}</a></li>
+                <li><a href="#/home">{{ trans('master.home') }}</a></li>
+                <li><a href="#/profile">{{ trans('master.profile') }}</a></li>
                 <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
                 <li><a href="#/basket">{{ trans('master.basket') }}</a></li>
                 <li><a href="#/signOut">{{ trans('master.signout') }}</a></li>
@@ -77,5 +77,7 @@
         <script src="{{ URL::asset("app/scripts/controllers/HomeCtrl.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/services/UserFactory.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/controllers/UserCtrl.js") }}">></script>
+        <script src="{{ URL::asset("app/scripts/controllers/BookCtrl.js") }}"></script>
+        <script src="{{ URL::asset("app/scripts/services/BookFactory.js") }}"></script>
     </body>
 </html>

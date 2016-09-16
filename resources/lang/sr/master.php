@@ -17,4 +17,5 @@ return [
     'signout' => 'Odjavi se',
     'contact' => 'Kontakt',
     'basket' => 'Korpa',
+    'home' => 'Pocetna'
 ];

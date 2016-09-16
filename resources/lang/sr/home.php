@@ -15,4 +15,5 @@ return [
 
 
     'login' => 'Ulogujte se',
+    'home' => 'Pocetna'
 ];

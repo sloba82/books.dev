@@ -1,4 +1,7 @@
 <div>
+    <ul>
+        <li><a href="#/home">{{ trans('home.home') }}</a></li>
+    </ul>
     <div>
         <fieldset ng-controller="SignInCtrl">
 
