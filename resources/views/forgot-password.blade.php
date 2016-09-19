@@ -25,7 +25,7 @@
             </span>
             </div>
             <div class="form-group">
-                <a href="#/home" class="btn btn-default">{{ trans('buttons.back') }}</a>
+                <a href="#/signIn" class="btn btn-default">{{ trans('buttons.back') }}</a>
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
                     {{ trans('buttons.send') }}
                 </button>
