@@ -32,6 +32,12 @@ class AppController extends Controller
                 return view('home');
             case 'book-view.html':
                 return view('book-view');
+            case 'profile.html':
+                return view('profile');
+            case 'basket.html':
+                return view('basket');
+            case 'contact.html':
+                return view('contact');
             case 'signIn.html':
                 return view('login');
             case 'forgot-password.html':

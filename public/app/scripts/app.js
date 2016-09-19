@@ -76,6 +76,9 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
         .state('home', {url: '/home', templateUrl: '/views/home.html'})
         .state('book-view', {url: '/book/{id}', templateUrl: '/views/book-view.html'})
+        .state('profile', {url: '/profile', templateUrl: '/views/profile.html'})
+        .state('basket', {url: '/basket', templateUrl: '/views/basket.html'})
+        .state('contact', {url: '/contact', templateUrl: '/views/contact.html'})
     $httpProvider.interceptors.push(function ($q, $injector) {
         return {
             request: function (request) {
