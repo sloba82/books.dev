@@ -18,7 +18,6 @@ Route::get('/', 'Application\AppController@provideFrontend');
 Route::get('/admin', 'Application\AppController@provideAdmin');
 //Choose sub template
 Route::get('/views/{viewName}', 'Application\AppController@choseSubTemplate');
-Route::get('/frontend/{viewName}', 'Application\AppController@frontendTemplate');
 //Request reset password
 Route::post('/requestresetpassword', 'UserController@requestresetpassword');
 //Reset password

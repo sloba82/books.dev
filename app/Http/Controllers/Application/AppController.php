@@ -16,7 +16,7 @@ class AppController extends Controller
 
     public function provideFrontend()
     {
-        return view('master');
+        return view('layouts/master');
     }
 
     public function provideAdmin()
@@ -29,17 +29,17 @@ class AppController extends Controller
     {
         switch ($viewName){
             case 'home.html':
-                return view('home');
+                return view('user/home');
             case 'book-view.html':
-                return view('book-view');
+                return view('user/book-view');
             case 'profile.html':
-                return view('profile');
+                return view('user/profile');
             case 'basket.html':
-                return view('basket');
+                return view('user/basket');
             case 'contact.html':
-                return view('contact');
+                return view('user/contact');
             case 'signIn.html':
-                return view('login');
+                return view('user/login');
             case 'forgot-password.html':
                 return view('forgot-password');
             case 'password-recovery.html':
