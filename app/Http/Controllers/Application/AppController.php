@@ -19,9 +19,9 @@ class AppController extends Controller
         return view('master');
     }
 
-    public function provideBackend()
+    public function provideAdmin()
     {
-        return view('layouts/backend');
+        return view('layouts/admin');
     }
 
 
@@ -44,6 +44,22 @@ class AppController extends Controller
                 return view('forgot-password');
             case 'password-recovery.html':
                 return view('password-recovery');
+            case 'signInAdmin.html':
+                return view('admin/login');
+            case 'home-admin.html':
+                return view('admin/home-admin');
+            case 'header.html':
+                return view('layouts/header');
+            case 'footer.html':
+                return view('layouts/footer');
+            case 'sidebar.html':
+                return view('layouts/sidebar');
+            case 'users.html':
+                return view('admin/users');
+            case 'orders.html':
+                return view('admin/orders');
+            case 'books.html':
+                return view('admin/books');
         }
     }
 

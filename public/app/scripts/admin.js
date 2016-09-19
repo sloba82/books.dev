@@ -1,5 +1,5 @@
 'use strict';
-var appName = 'Medical Books Admin - '
+var appName = 'Medical Books Admin'
 /**
  * The application.
  */
@@ -10,10 +10,6 @@ var app = angular.module('uiAdmin', [
     'ui.router',
     'mgcrea.ngStrap',
     'satellizer',
-    'adminControllers',
-    'adminDirectives',
-    'tableService',
-    '720kb.datepicker',
 ]);
 
 /**
@@ -68,8 +64,12 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     $urlRouterProvider.otherwise('/signIn');
 
     $stateProvider
-        .state('signIn', { url: '/signIn', templateUrl: '/views/signInBackend.html', resolve: loginCheck })
+        .state('signIn', { url: '/signIn', templateUrl: '/views/signInAdmin.html', resolve: loginCheck })
         .state('signOut', { url: '/signOut', template: null,  controller: 'SignOutCtrl', resolve: authCheck })
+        .state('home-admin', {url: '/home-admin', templateUrl: '/views/home-admin.html', resolve: authCheck })
+        .state('users', {url: '/users', templateUrl: '/views/users.html', resolve: authCheck })
+        .state('books', {url: '/books', templateUrl: '/views/books.html', resolve: authCheck })
+        .state('orders', {url: '/orders', templateUrl: '/views/orders.html', resolve: authCheck })
 
     $httpProvider.interceptors.push(function($q, $injector) {
         return {
@@ -109,9 +109,9 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     // Auth config
     $authProvider.httpInterceptor = true; // Add Authorization header to HTTP request
     $authProvider.loginOnSignup = true;
-    $authProvider.loginRedirect = '/superadmin';
+    $authProvider.loginRedirect = '/admin';
     $authProvider.logoutRedirect = '/';
-    $authProvider.signupRedirect = '/home';
+    $authProvider.signupRedirect = '/admin';
     $authProvider.loginUrl = '/authenticate';
     $authProvider.signupUrl = '/signUp';
     $authProvider.loginRoute = '/signIn';

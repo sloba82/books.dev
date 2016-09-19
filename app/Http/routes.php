@@ -15,7 +15,7 @@
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
 // Provide Template
 Route::get('/', 'Application\AppController@provideFrontend');
-Route::get('/backend/', 'Application\AppController@provideBackend');
+Route::get('/admin', 'Application\AppController@provideAdmin');
 //Choose sub template
 Route::get('/views/{viewName}', 'Application\AppController@choseSubTemplate');
 Route::get('/frontend/{viewName}', 'Application\AppController@frontendTemplate');
