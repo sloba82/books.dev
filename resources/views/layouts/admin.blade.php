@@ -48,5 +48,6 @@
 <script src="{{ URL::asset("app/scripts/controllers/UserCtrl.js") }}">></script>
 <script src="{{ URL::asset("app/scripts/controllers/BookCtrl.js") }}"></script>
 <script src="{{ URL::asset("app/scripts/services/BookFactory.js") }}"></script>
+<script src="{{ URL::asset("app/scripts/controllers/HomeCtrl.js") }}"></script>
 </body>
 </html>

@@ -56,10 +56,22 @@ class AppController extends Controller
                 return view('layouts/sidebar');
             case 'users.html':
                 return view('admin/users');
+            case 'user-create.html':
+                return view('admin/user-create');
+            case 'user-edit.html':
+                return view('admin/user-edit');
             case 'orders.html':
                 return view('admin/orders');
+            case 'order-create.html':
+                return view('admin/order-create');
+            case 'order-edit.html':
+                return view('admin/order-edit');
             case 'books.html':
                 return view('admin/books');
+            case 'book-create.html':
+                return view('admin/book-create');
+            case 'book-edit.html':
+                return view('admin/book-edit');
         }
     }
 
