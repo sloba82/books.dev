@@ -26,7 +26,7 @@ Route::get('/password-recover/{secret_token}', function ($secret_token) {
     return view('password-recovery', ['secret_token'=>$secret_token]);
 });
 //Home
-Route::get('/home', 'HomeController@home');
+Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['jwt.auth','permission'], 'roles' => ['admin, user']], function () {
 
