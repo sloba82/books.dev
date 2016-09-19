@@ -38,12 +38,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $users = $this->userHandler->getAllUsers();
+        
         if (empty($users))
         {
             return response()->json(['message' => trans('response.nodata')], 404);
@@ -70,11 +66,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $params = $request->all();
 
         $valid = Validator::make($params, UserModel::$rules);
@@ -98,12 +89,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $user = $this->userHandler->getUserById($id);
+
         if (!$user)
         {
             return response()->json([ 'message' => trans('response.not_found') ], 404);
@@ -132,11 +119,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $params = $request->all();
 
         $valid = Validator::make($params, UserModel::$rules);

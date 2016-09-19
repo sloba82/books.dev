@@ -26,21 +26,24 @@ Route::post('/resetpassword', 'UserController@resetpassword');
 Route::get('/password-recover/{secret_token}', function ($secret_token) {
     return view('password-recovery', ['secret_token'=>$secret_token]);
 });
-//Check if mail exists
-Route::post('/checkEmailExists', 'UserController@checkEmail');
 //Home
 Route::get('/home', 'HomeController@home');
 
-Route::group(['middleware' => ['jwt.auth']], function () {
-
-
-    Route::get('/profile', 'UserController@getUserFromJWT');
-    Route::get('/basket', 'OrderController@getBasket');
-    //TODO all functionality for basket page with frontend!
+Route::group(['middleware' => ['jwt.auth','permission'], 'roles' => ['admin, user']], function () {
 
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
     Route::resource('book', 'BookController');
+
+});
+
+Route::group(['middleware' => ['jwt.auth','permission'], 'roles' => ['user']], function () {
+
+    //TODO all functionality for profile page with frontend!
+    Route::get('/profile', 'UserController@getUserFromJWT');
+    //TODO all functionality for basket page with frontend!
+    Route::get('/basket', 'OrderController@getBasket');
+//    Route::get('/contact', 'ContactController@sendMail');
 
 });
 

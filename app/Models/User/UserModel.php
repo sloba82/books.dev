@@ -95,6 +95,39 @@ class UserModel extends Authenticatable
     ];
 
     /**
+     * Check if user have role in given array or var
+     *
+     * @param array|string $roles
+     *
+     * @return boolean
+     */
+    public function hasRole($roles)
+    {
+        $cur_role = $this->role()->first()->name;
+        if (is_array($roles) && in_array($cur_role, $roles))
+        {
+            return true;
+        }
+        if ($cur_role == $roles)
+        {
+            return true;
+        }
+
+        return false;
+
+    }
+
+    /**
+     * Get the user role that owns the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo('App\Models\UserRole\UserRoleModel', 'role', 'id');
+    }
+
+    /**
      * Relation: one user model owns any amount of order models.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -37,12 +37,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $orders = $this->orderHandler->getAllOrders();
+
         if (empty($orders))
         {
             return response()->json(['message' => trans('response.nodata')], 404);
@@ -69,12 +65,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $user = UtilityHelpers::getUserFromJWT();
-        if (!$user)
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $params = $request->all();
 
         $valid = Validator::make($params, OrderModel::$rulesCreate);
@@ -98,12 +88,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $order = $this->orderHandler->getOrderById($id);
+
         if (!$order)
         {
             return response()->json([ 'message' => trans('response.not_found') ], 404);
@@ -132,11 +118,6 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!UtilityHelpers::getUserFromJWT())
-        {
-            return response()->json([ 'message' => trans('response.user') ], 400);
-        }
-
         $params = $request->all();
 
         $valid = Validator::make($params, OrderModel::$rulesUpdate);

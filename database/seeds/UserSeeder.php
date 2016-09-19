@@ -18,13 +18,13 @@ class UserSeeder extends Seeder
 
         $users = [
             [
-                'username'  => 'user1@user.com',
-                'password'  => md5('user1'),
-                'first_name' => 'test',
-                'last_name' => 'test',
-                'address' => 'test',
-                'city' => 'test',
-                'medical_institution' => 'test',
+                'username'  => 'admin@admin.com',
+                'password'  => md5('admin'),
+                'first_name' => 'admin',
+                'last_name' => 'admin',
+                'address' => 'admin',
+                'city' => 'admin',
+                'medical_institution' => 'admin',
                 'role'      => 1,
                 'active'	=> 1,
             ],
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
                 'address' => 'test',
                 'city' => 'test',
                 'medical_institution' => 'test',
-                'role'      => 1,
+                'role'      => 2,
                 'active'	=> 1,
             ],
             [
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
                 'address' => 'test',
                 'city' => 'test',
                 'medical_institution' => 'test',
-                'role'      => 1,
+                'role'      => 2,
                 'active'	=> 1,
             ],
         ];
