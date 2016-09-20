@@ -7,7 +7,11 @@
         <ul ng-init="getAllOrders()">
             <li ng-repeat="order in orders">
                 <a href="#/order/[[order.id]]">
-                    [[order.user_id]] [[order.books]] [[order.status]]</a>
+                    [[order.user.first_name]]
+                    [[order.user.last_name]][[$last ? ', ' : ', ']]
+                    <span ng-repeat="book in order.books">[[book]][[$last ? ', ' : ', ']]</span>
+                    [[order.status]]
+                </a>
             </li>
         </ul>
     </div>

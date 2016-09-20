@@ -16,7 +16,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->text('books');
-            $table->integer('status');
+            $table->string('status', 16);
             $table->timestamps();
         });
     }

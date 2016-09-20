@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Order;
 
+use App\Models\Book\BookModel;
 use App\Models\Order\OrderModel;
 
 /**
@@ -17,7 +18,15 @@ class OrderRepository
      */
     public function getAllOrders()
     {
-        return OrderModel::all();
+        $orders = OrderModel::all();
+
+        foreach ($orders as $order)
+        {
+            $order->user;
+            $order->books = $this->getTitleForBooks(unserialize($order->books));
+        }
+
+        return $orders;
     }
 
     /**
@@ -74,5 +83,24 @@ class OrderRepository
         $order->status = $params['status'] ? $params['status'] : 1;
 
         return $order->save();
+    }
+
+    /**
+     * Method for getting title for books.
+     *
+     * @param array $ids
+     * @return array
+     */
+    private function getTitleForBooks($ids)
+    {
+        $books =  BookModel::whereIn('id', $ids)->get();
+
+        $bookNames = [];
+        foreach ($books as $book)
+        {
+            $bookNames[] = $book->title_eng;
+        }
+
+        return $bookNames;
     }
 }
