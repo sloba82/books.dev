@@ -90,19 +90,28 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
             }
         });
 
+        $scope.createUserAdmin = function(){
+            UserFactory.createUser($scope.user).then(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.edit=false;
+                $scope.resetForm();
+            }).catch(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
+
         $scope.updateUserAdmin = function(){
-            $scope.update = {
-                id:$scope.selected_user.id,
-                username:$scope.selected_user.username,
-                first_name:$scope.selected_user.first_name,
-                last_name:$scope.selected_user.last_name,
-                address:$scope.selected_user.address,
-                city:$scope.selected_user.city,
-                medical_institution:$scope.selected_user.medical_institution,
-                role:$scope.selected_user.role,
-                active:$scope.selected_user.active,
-            };
-            UserFactory.updateUser($scope.update).then(function(response){
+            UserFactory.updateUser($scope.selected_user).then(function(response){
                 $alert({
                     content: response.data.message,
                     animation: 'fadeZoomFadeDown',
@@ -119,6 +128,12 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                     duration: 3
                 });
             })
+        };
+
+        $scope.getRoles = function(){
+            UserFactory.getRoles().then(function(response){
+                $scope.roles = response.data;
+            });
         };
 
         $scope.resetForm = function () {

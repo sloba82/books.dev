@@ -51,5 +51,6 @@
 <script src="{{ URL::asset("app/scripts/controllers/HomeCtrl.js") }}"></script>
 <script src="{{ URL::asset("app/scripts/services/OrderFactory.js") }}"></script>
 <script src="{{ URL::asset("app/scripts/controllers/OrderCtrl.js") }}"></script>
+<sript></script>
 </body>
 </html>

@@ -28,5 +28,11 @@ app.factory('UserFactory', function($http) {
         updateUser: function(data){
             return $http.put('/user/' + data.id, data);
         },
+        createUser: function(data){
+            return $http.post('/user', data);
+        },
+        getRoles:function(){
+            return $http.get('/role');
+        },
     };
 });
