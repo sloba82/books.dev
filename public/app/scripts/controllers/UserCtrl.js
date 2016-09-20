@@ -110,7 +110,7 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                     duration: 3
                 });
                 $scope.edit=false;
-                $scope.getUserForAdmin();
+                $scope.getUser();
             }).catch(function (response) {
                 $alert({
                     content: response.data.message,

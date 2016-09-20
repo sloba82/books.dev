@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         $users = [
             [
                 'username'  => 'admin@admin.com',
-                'password'  => bcrypt('admin'),
+                'password'  => md5('admin'),
                 'first_name' => 'admin',
                 'last_name' => 'admin',
                 'address' => 'admin',
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             [
 
                 'username'  => 'user2@user.com',
-                'password'  => bcrypt('user2'),
+                'password'  => md5('user2'),
                 'first_name' => 'test',
                 'last_name' => 'test',
                 'address' => 'test',
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             [
 
                 'username'  => 'user3@user.com',
-                'password'  => bcrypt('user3'),
+                'password'  => md5('user3'),
                 'first_name' => 'test',
                 'last_name' => 'test',
                 'address' => 'test',

@@ -20,7 +20,7 @@ class UserRepository
     public static function getUser($credentials)
     {
         return UserModel::where('username', $credentials['username'])
-            ->where('password', bcrypt($credentials['password']))
+            ->where('password', md5($credentials['password']))
             ->first();
     }
 
@@ -45,7 +45,7 @@ class UserRepository
         $user = new UserModel();
 
         $user->username = $params['username'];
-        $user->password = bcrypt($params['password']);
+        $user->password = md5($params['password']);
 	    $user->first_name = $params['first_name'];
 	    $user->last_name = $params['last_name'];
         $user->address = $params['address'];
@@ -93,7 +93,7 @@ class UserRepository
         $user->username = $params['username'];
         if (isset($params['password']))
         {
-            $user->password = bcrypt($params['password']);
+            $user->password = md5($params['password']);
         }
         $user->first_name = $params['first_name'];
         $user->last_name = $params['last_name'];
@@ -158,7 +158,7 @@ class UserRepository
     {
         $user = UserModel::where('token', $params['token'])->first();
 
-        $user->password = bcrypt($params['password']);
+        $user->password = md5($params['password']);
 
         return $user->save();
     }
