@@ -22,5 +22,11 @@ app.factory('UserFactory', function($http) {
         getUser : function(id){
             return $http.get('/user/' + id);
         },
+        checkEmail: function(email){
+            return $http.post('/check-email',{email:email});
+        },
+        updateUser: function(data){
+            return $http.put('/user/' + data.id, data);
+        },
     };
 });

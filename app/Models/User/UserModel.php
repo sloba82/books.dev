@@ -2,13 +2,13 @@
 
 namespace App\Models\User;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserModel
  * @package App\Models\User
  */
-class UserModel extends Authenticatable
+class UserModel extends Model
 {
 
     /**
@@ -19,7 +19,7 @@ class UserModel extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array $fillable
      */
     protected $fillable = [
         'username',
@@ -36,13 +36,18 @@ class UserModel extends Authenticatable
     /**
      * The attributes that should be hidden for arrays.
      *
-     * @var array
+     * @var array $hidden
      */
     protected $hidden = [
         'password',
         'token',
     ];
 
+    /**
+     * Rules to be passed while authenticate a user.
+     *
+     * @var array $getUserRules
+     */
     public static $getUserRules = [
         'username' => 'required|email',
         'password' => 'required|min:2|max:16'
@@ -51,7 +56,7 @@ class UserModel extends Authenticatable
     /**
      * Rules to be passed while creating new user.
      *
-     * @var array
+     * @var array $rules
      */
     public static $rules = [
         'username' => 'required|email|unique:users,username|max:32',
@@ -61,7 +66,22 @@ class UserModel extends Authenticatable
         'address' => 'required|min:8|max:32',
         'city' => 'required|min:2|max:16',
         'medical_institution' => 'required|min:8|max:64',
-//        'role' => 'required|integer|exists:user_roles,id',
+        'role' => 'required|integer|exists:user_roles,id',
+    ];
+
+    /**
+     * Rules to be passed while updating user.
+     *
+     * @var array $rulesUpdate
+     */
+    public static $rulesUpdate = [
+        'username' => 'required|email|max:32',
+        'first_name' => 'required|min:2|max:16',
+        'last_name' => 'required|min:2|max:32',
+        'address' => 'required|min:8|max:32',
+        'city' => 'required|min:2|max:16',
+        'medical_institution' => 'required|min:8|max:64',
+        'role' => 'required|integer|exists:user_roles,id',
     ];
 
     /**
@@ -77,7 +97,7 @@ class UserModel extends Authenticatable
     /**
      * Rules to be passed while requesting reset password.
      *
-     * @var array
+     * @var array $requestResetPasswordRules
      */
     public static $requestResetPasswordRules = [
         'username' => 'required|email|exists:users,username|max:32',
@@ -86,36 +106,13 @@ class UserModel extends Authenticatable
     /**
      * Rules to be passed while resetting password.
      *
-     * @var array
+     * @var array $resetPasswordRules
      */
     public static $resetPasswordRules = [
         'token' => 'required|max:32',
         'password' => 'required|min:5|max:32',
         'confirm_password' => 'required|same:password',
     ];
-
-    /**
-     * Check if user have role in given array or var
-     *
-     * @param array|string $roles
-     *
-     * @return boolean
-     */
-    public function hasRole($roles)
-    {
-        $cur_role = $this->role()->first()->name;
-        if (is_array($roles) && in_array($cur_role, $roles))
-        {
-            return true;
-        }
-        if ($cur_role == $roles)
-        {
-            return true;
-        }
-
-        return false;
-
-    }
 
     /**
      * Get the user role that owns the user.
