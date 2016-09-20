@@ -16,5 +16,11 @@ app.factory('UserFactory', function($http) {
         passwordRecovery:function(data){
             return $http.post('/password-recovery',data);
         },
+        getAllUsers : function(){
+            return $http.get('/user');
+        },
+        getUser : function(id){
+            return $http.get('/user/' + id);
+        },
     };
 });

@@ -7,8 +7,8 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
     function($rootScope, $location, $scope, $auth, $alert, $stateParams, BookFactory){
 
     $scope.getAllBooks = function () {
-        BookFactory.getAllBooks().then(function response() {
-            $scope.books = $response.data;
+        BookFactory.getAllBooks().then(function (response) {
+            $scope.books = response.data;
         }).catch(function (resp) {
             $alert({
                 content: "Nema podataka",

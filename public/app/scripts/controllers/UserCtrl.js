@@ -1,3 +1,7 @@
+'use strict';
+/**
+ * The user controller.
+ */
 app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location', '$stateParams', 'UserFactory',
     function($rootScope, $scope, $alert, $auth, $location, $stateParams, UserFactory) {
 
@@ -44,6 +48,32 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                 });
             });
         }
+
+        $scope.getAllUsers = function () {
+            UserFactory.getAllUsers().then(function (response) {
+                $scope.users = response.data;
+            }).catch(function (resp) {
+                $alert({
+                    content: "Nema podataka",
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
+
+        $scope.getUser = function () {
+            UserFactory.getUser($stateParams.id).then(function (response) {
+                $scope.user = response.data;
+            }).catch(function (resp) {
+                $alert({
+                    content: "Nema podataka",
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
 
         $scope.resetForm = function () {
             $scope.form.$setPristine();
