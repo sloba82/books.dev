@@ -102,9 +102,6 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                 role:$scope.selected_user.role,
                 active:$scope.selected_user.active,
             };
-            if($scope.oldusername!=$scope.selected_user.username){
-                $scope.update.username = $scope.selected_user.username;
-            }
             UserFactory.updateUser($scope.update).then(function(response){
                 $alert({
                     content: response.data.message,
