@@ -16,12 +16,12 @@ class AppController extends Controller
 
     public function provideFrontend()
     {
-        return view('layouts/master');
+        return view('layouts/user/master');
     }
 
     public function provideAdmin()
     {
-        return view('layouts/admin');
+        return view('layouts/admin/admin');
     }
 
 
@@ -49,7 +49,7 @@ class AppController extends Controller
             case 'home-admin.html':
                 return view('admin/home-admin');
             case 'header.html':
-                return view('layouts/header');
+                return view('layouts/admin/header');
             case 'footer.html':
                 return view('layouts/footer');
             case 'sidebar.html':

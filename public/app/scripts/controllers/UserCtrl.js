@@ -101,11 +101,13 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
             })
         };
 
-        $scope.$watch('user_create.username', function () {
+        $scope.$watch('user_create.username', function (newValue) {
             $scope.exist = false;
-            UserFactory.checkEmail($scope.user_create.username).then(function (response) {
-                $scope.exist = response.data.exist;
-            })
+            if(typeof newValue != 'undefined'){
+                UserFactory.checkEmail($scope.user_create.username).then(function (response){
+                    $scope.exist = response.data.exist;
+                })
+            }
         });
 
         $scope.getRoles = function(){
