@@ -80,18 +80,8 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
             $scope.edit=true;
         };
 
-        $scope.$watch('selected_user.username', function(newValue, oldValue) {
-            $scope.exist = false;
-            oldValue = $scope.oldusername;
-            if(typeof newValue != 'undefined' && newValue !== oldValue){
-                UserFactory.checkEmail($scope.selected_user.username).then(function (response){
-                    $scope.exist = response.data.exist;
-                })
-            }
-        });
-
         $scope.createUserAdmin = function(){
-            UserFactory.createUser($scope.user).then(function(response){
+            UserFactory.createUser($scope.user_create).then(function(response){
                 $alert({
                     content: response.data.message,
                     animation: 'fadeZoomFadeDown',
@@ -99,6 +89,7 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                     duration: 3
                 });
                 $scope.edit=false;
+                $scope.user_create = {}
                 $scope.resetForm();
             }).catch(function (response) {
                 $alert({
@@ -108,6 +99,19 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
                     duration: 3
                 });
             })
+        };
+
+        $scope.$watch('user_create.username', function () {
+            $scope.exist = false;
+            UserFactory.checkEmail($scope.user_create.username).then(function (response) {
+                $scope.exist = response.data.exist;
+            })
+        });
+
+        $scope.getRoles = function(){
+            UserFactory.getRoles().then(function(response){
+                $scope.roles = response.data;
+            });
         };
 
         $scope.updateUserAdmin = function(){
@@ -130,11 +134,15 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
             })
         };
 
-        $scope.getRoles = function(){
-            UserFactory.getRoles().then(function(response){
-                $scope.roles = response.data;
-            });
-        };
+        $scope.$watch('selected_user.username', function(newValue, oldValue) {
+            $scope.exist = false;
+            oldValue = $scope.oldusername;
+            if(typeof newValue != 'undefined' && newValue !== oldValue){
+                UserFactory.checkEmail($scope.selected_user.username).then(function (response){
+                    $scope.exist = response.data.exist;
+                })
+            }
+        });
 
         $scope.resetForm = function () {
             $scope.form.$setPristine();

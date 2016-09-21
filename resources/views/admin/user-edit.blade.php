@@ -99,16 +99,16 @@
                                ng-minlength="8"
                                ng-maxlength="32">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.required">
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.minlength">
+                                            {{ trans('user.address_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.maxlength">
+                                            {{ trans('user.address_maxlength') }}
                                         </span>
                     </div>
                 </div>
@@ -125,16 +125,16 @@
                                ng-minlength="2"
                                ng-maxlength="16">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.required">
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.minlength">
+                                            {{ trans('user.city_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.maxlength">
+                                            {{ trans('user.city_maxlength') }}
                                         </span>
                     </div>
                 </div>
@@ -151,16 +151,16 @@
                                ng-minlength="8"
                                ng-maxlength="16">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.required">
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.minlength">
+                                            {{ trans('user.medical_institution_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.maxlength">
+                                            {{ trans('user.medical_institution_maxlength') }}
                                         </span>
                     </div>
                 </div>

@@ -14,7 +14,7 @@
                                class="form-control"
                                required
                                placeholder="example@mail.com"
-                               ng-model="user.username"
+                               ng-model="user_create.username"
                                ng-maxlength="32">
                         <span class="text-danger"
                               ng-show="(form.username.$dirty || form.$submitted) && form.username.$error.required">
@@ -37,30 +37,26 @@
                 <div>
                     <label for="password">Password</label>
                     <div>
-                        <input type="text"
+                        <input type="password"
                                id="password"
                                name="password"
                                class="form-control"
                                required
                                placeholder="Password"
-                               ng-model="user.password"
+                               ng-model="user_create.password"
                                ng-minlength="5"
                                ng-maxlength="60">
                         <span class="text-danger"
-                              ng-show="(form.username.$dirty || form.$submitted) && form.password.$error.required">
+                              ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.first_name.$dirty || form.$submitted) && form.password.$error.minlength">
+                              ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.minlength">
                                             {{ trans('user.password_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.username.$dirty || form.$submitted) && form.password.$error.maxlength">
+                              ng-show="(form.password.$dirty || form.$submitted) && form.password.$error.maxlength">
                                             {{ trans('user.password_maxlength') }}
-                                        </span>
-                        <span class="text-danger"
-                              ng-show="exist==true">
-                                            {{ trans('user.email_exists') }}
                                         </span>
                     </div>
                 </div>
@@ -73,7 +69,7 @@
                                placeholder="First name"
                                class="form-control"
                                required
-                               ng-model="user.first_name"
+                               ng-model="user_create.first_name"
                                ng-minlength="2"
                                ng-maxlength="16">
                         <span class="text-danger"
@@ -99,7 +95,7 @@
                                placeholder="Last name"
                                class="form-control"
                                required
-                               ng-model="user.last_name"
+                               ng-model="user_create.last_name"
                                ng-minlength="2"
                                ng-maxlength="32">
                         <span class="text-danger"
@@ -125,20 +121,20 @@
                                placeholder="Address"
                                class="form-control"
                                required
-                               ng-model="user.address"
+                               ng-model="user_create.address"
                                ng-minlength="8"
                                ng-maxlength="32">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.required">
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.minlength">
+                                            {{ trans('user.address_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.address.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.address.$dirty || form.$submitted) && form.address.$error.maxlength">
+                                            {{ trans('user.address_maxlength') }}
                                         </span>
                     </div>
                 </div>
@@ -151,20 +147,20 @@
                                placeholder="City"
                                class="form-control"
                                required
-                               ng-model="user.city"
+                               ng-model="user_create.city"
                                ng-minlength="2"
                                ng-maxlength="16">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.required">
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.minlength">
+                                            {{ trans('user.city_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.city.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.maxlength">
+                                            {{ trans('user.city_maxlength') }}
                                         </span>
                     </div>
                 </div>
@@ -177,20 +173,20 @@
                                placeholder="Medical Institution"
                                class="form-control"
                                required
-                               ng-model="user.medical_institution"
+                               ng-model="user_create.medical_institution"
                                ng-minlength="8"
-                               ng-maxlength="16">
+                               ng-maxlength="64">
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.required">
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.required">
                                             {{ trans('user.required') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.minlength">
-                                            {{ trans('user.last_name_minlength') }}
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.minlength">
+                                            {{ trans('user.medical_institution_minlength') }}
                                         </span>
                         <span class="text-danger"
-                              ng-show="(form.last_name.$dirty || form.$submitted) && form.medical_institution.$error.maxlength">
-                                            {{ trans('user.last_name_maxlength') }}
+                              ng-show="(form.medical_institution.$dirty || form.$submitted) && form.medical_institution.$error.maxlength">
+                                            {{ trans('user.medical_institution_maxlength') }}
                                         </span>
                     </div>
                 </div>
@@ -201,7 +197,7 @@
                                 id="role"
                                 required
                                 class="form-control"
-                                ng-model="user.role"
+                                ng-model="user_create.role"
                                 ng-init="getRoles()">
                             <option value="">Choose one..</option>
                             <option ng-repeat="role in roles" value="[[role.id]]">[[role.name]]</option>
@@ -215,14 +211,14 @@
                 <div>
                     <label for="user_active">
 
-                        <input id="user_active" ng-model="user.active" type="radio"
+                        <input id="user_active" ng-model="user_create.active" type="radio"
                                name="active" ng-true-value="1" ng-value="1">
                         Active
                     </label>
                 </div>
                 <div>
                     <label for="user_inactive">
-                        <input id="user_inactive" ng-model="user.active" type="radio"
+                        <input id="user_inactive" ng-model="user_create.active" type="radio"
                                name="active" ng-true-value="0" ng-value="0">
                         Blocked
                     </label>

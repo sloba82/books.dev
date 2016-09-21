@@ -52,7 +52,6 @@ class UserRepository
         $user->city = $params['city'];
         $user->medical_institution = $params['medical_institution'];
         $user->role = $params['role'];
-        $user->token = $params['token'];
         $user->active = $params['active'];
 
         return $user->save();
