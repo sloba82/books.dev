@@ -3,25 +3,38 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Medical Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/main.css') }}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" 
+    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" 
+    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" 
+    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" 
+    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
 
 </head>
-    <body ng-controller="HomeCtrl" ng-cloak>
 
-        <div ng-if="isAuthenticated()" ng-init="init()"></div>
-        <div ng-if="isAuthenticated()"
-            <ul>
-                <li><a href="#/home">{{ trans('master.home') }}</a></li>
-                <li><a href="#/profile">{{ trans('master.profile') }}</a></li>
-                <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
-                <li><a href="#/basket">{{ trans('master.basket') }}</a></li>
-                <li><a href="#/signOut">{{ trans('master.signout') }}</a></li>
-            </ul>
-        </div>
+<body ng-controller="HomeCtrl" ng-cloak  ng-init="init()"  >
 
-        <div ng-if="isAuthenticated()">
+<div  ng-include=" 'views/header_front.html'"></div>
+
+
+  <div ng-if="isAuthenticated()">
             <nav>
                 <div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,7 +43,7 @@
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
-        </div>
+    </div>
         <div ng-if="isAuthenticated()">
 
             <div class="mainInput">
@@ -48,6 +61,18 @@
             </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
+<!-- /////  -->
 
         <!-- END CONTAINER -->
         <!--[if lt IE 9]>
@@ -79,5 +104,14 @@
         <script src="{{ URL::asset("app/scripts/controllers/UserCtrl.js") }}">></script>
         <script src="{{ URL::asset("app/scripts/controllers/BookCtrl.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/services/BookFactory.js") }}"></script>
+<!--
+    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
+    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
+-->
+
+
+
     </body>
 </html>

@@ -1,11 +1,4 @@
 <div ng-controller="HomeCtrl">
-    <div ng-if="!isAuthenticated()">
-        <ul>
-            <li><a href="#/signIn">
-                    {{ trans('home.login') }}</a></li>
-        </ul>
-    </div>
-
     <div ng-if="isAuthenticated()">
         <ul ng-init="getAllBooks()">
             <li ng-repeat="book in books">
