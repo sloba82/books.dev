@@ -40,8 +40,8 @@ class BookModel extends Model
         'discription_short' => 'required',
         'discription_long' => 'required',
         'autor' => 'required|max:512',
-        'price' => 'required',
-        'page_num' => 'required',
+        'price' => 'required|intiger|digits_between:1,100000',
+        'page_num' => 'required|intiger|digits_between:1,10000',
         'deadline' => 'required|max:32',
         'book_pdf' => 'required|max:256',
         'book_cover' => 'required|max:32'

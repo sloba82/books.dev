@@ -21,7 +21,7 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
 
     $scope.getBook = function () {
         BookFactory.getBook($stateParams.id).then(function (response) {
-            $scope.book = response.data;
+            $scope.selected_book = response.data;
         }).catch(function (resp) {
             $alert({
                 content: "Nema podataka",
@@ -31,6 +31,30 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
             });
         })
     };
+
+        $scope.updateBook = function(){
+            BookFactory.updateBook($scope.selected_book).then(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.edit=false;
+                $scope.getUser();
+            }).catch(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
+
+        $scope.setEdit = function (){
+            $scope.edit=true;
+        };
 
     $scope.resetForm = function () {
         $scope.form.$setPristine();
