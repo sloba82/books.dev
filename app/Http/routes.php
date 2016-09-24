@@ -25,6 +25,7 @@ Route::post('/resetpassword', 'UserController@resetpassword');
 Route::get('/password-recover/{secret_token}', function ($secret_token) {
     return view('password-recovery', ['secret_token'=>$secret_token]);
 });
+Route::post('/check-email', 'UserController@checkEmail');
 //Home
 Route::get('/home', 'HomeController@index');
 
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['jwt.auth','permission'], 'roles' => ['admin, use
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
     Route::resource('book', 'BookController');
+    Route::resource('role', 'UserRoleController');
 
 });
 

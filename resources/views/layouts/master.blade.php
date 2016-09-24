@@ -61,19 +61,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- /////  -->
-
         <!-- END CONTAINER -->
         <!--[if lt IE 9]>
         <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -104,12 +91,11 @@
         <script src="{{ URL::asset("app/scripts/controllers/UserCtrl.js") }}">></script>
         <script src="{{ URL::asset("app/scripts/controllers/BookCtrl.js") }}"></script>
         <script src="{{ URL::asset("app/scripts/services/BookFactory.js") }}"></script>
-<!--
-    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
-    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
--->
+
+        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
+        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
+        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
 
 
 

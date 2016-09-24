@@ -52,7 +52,6 @@ class UserRepository
         $user->city = $params['city'];
         $user->medical_institution = $params['medical_institution'];
         $user->role = $params['role'];
-        $user->token = $params['token'];
         $user->active = $params['active'];
 
         return $user->save();
@@ -91,14 +90,20 @@ class UserRepository
         $user = UserModel::find($id);
 
         $user->username = $params['username'];
-        $user->password = md5($params['password']);
+        if (isset($params['password']))
+        {
+            $user->password = md5($params['password']);
+        }
         $user->first_name = $params['first_name'];
         $user->last_name = $params['last_name'];
         $user->address = $params['address'];
         $user->city = $params['city'];
         $user->medical_institution = $params['medical_institution'];
         $user->role = $params['role'];
-        $user->token = $params['token'];
+        if (isset($params['token']))
+        {
+            $user->token = $params['token'];
+        }
         $user->active = $params['active'];
 
         return $user->save();
@@ -119,20 +124,19 @@ class UserRepository
     }
 
     /**
-     * Method for getting user by email.
+     *  Method for getting user by email from db.
      *
      * @param string $email
-     *
-     * @return \Illuminate\Database\Eloquent\Model||null
+     * @return bool
      */
     public function getUserByEmail($email)
     {
         return UserModel::where('username', $email)
-            ->first();
+            ->exists();
     }
 
     /**
-     * Method for setting token for user.
+     * Method for setting token for user in db.
      *
      * @param string $token
      * @param int $id

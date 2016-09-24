@@ -19,17 +19,17 @@ class OrderSeeder extends Seeder
             [
                 'user_id' => 1,
                 'books' => serialize([1,2]),
-                'status' => 1,
+                'status' => 'Processing',
             ],
             [
                 'user_id' => 2,
                 'books' => serialize([1,2,3]),
-                'status' => 2
+                'status' => 'Production'
             ],
             [
                 'user_id' => 3,
                 'books' => serialize([1,2,4]),
-                'status' => 3
+                'status' => 'Sent'
             ],
         ];
 

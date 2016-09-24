@@ -1,7 +1,8 @@
-Books!
+<div>
+    <h3>Books</h3>
+</div>
 
-<div ng-controller="HomeCtrl">
-
+<div ng-controller="BookCtrl">
     <div ng-if="isAuthenticated()">
         <ul ng-init="getAllBooks()">
             <li ng-repeat="book in books">

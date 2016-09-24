@@ -121,10 +121,10 @@ class UserController extends Controller
     {
         $params = $request->all();
 
-        $valid = Validator::make($params, UserModel::$rules);
-        if ($valid->fails()) {
-            return response()->json(array('message' => trans('response.invalid')), 400);
-        }
+//        $valid = Validator::make($params, UserModel::$rulesUpdate);
+//        if ($valid->fails()) {
+//            return response()->json(array('message' => trans('response.invalid')), 400);
+//        }
 
         if (!$this->userHandler->updateUser($params, $id))
         {
@@ -222,6 +222,29 @@ class UserController extends Controller
         }
 
         return response()->json(['message'=> trans('response.success')], 200);
+
+    }
+
+    /**
+     * Non UI route method for checking if user exists with posted email.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function checkEmail(Request $request)
+    {
+        $params = $request->all();
+        if (empty($params)||  json_last_error()!= JSON_ERROR_NONE)
+        {
+            return response()->json(['message'=>trans('response.nodata')], 400);
+        }
+
+        if (!$this->userHandler->getUserByEmail($params['email']))
+        {
+            return response()->json([ 'exist' => false, 'message' => trans('response.email_not_exists') ], 404);
+        }
+
+        return response()->json([ 'exist' => true, 'message' => trans('response.email_exists') ], 200);
 
     }
 
