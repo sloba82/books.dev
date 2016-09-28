@@ -52,6 +52,27 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
             })
         };
 
+        $scope.createBook = function(){
+            BookFactory.createBook($scope.book_create).then(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.edit=false;
+                $scope.user_create = {}
+                $scope.resetForm();
+            }).catch(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
+
         $scope.sort = function(keyname){
             $scope.sortKey = keyname;
             $scope.reverse = !$scope.reverse;
@@ -67,8 +88,3 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
     };
 
 }]);
-
-
-
-
-

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Medical Books</title>
+    <title>Medical Books Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/font-awesome.min.css') }}" rel="stylesheet">

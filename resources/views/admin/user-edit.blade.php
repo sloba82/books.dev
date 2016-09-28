@@ -2,7 +2,6 @@
     <div ng-init="getUser()">
         <div class="grid-title no-border">
             <h4>User: <span class="semi-bold">[[oldusername]]</span></h4>
-            <button class="btn-success"><a  ng-href="#/orders">Back</a></button>
         <form name="form" id='form' ng-submit="updateUserAdmin()" autocomplete="off" novalidate>
             <fieldset ng-disabled="!edit">
                 <div>

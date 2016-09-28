@@ -16,5 +16,8 @@ app.factory('BookFactory', function($http) {
         updateBook: function(data){
             return $http.put('/book/' + data.id, data);
         },
+        createBook: function(data){
+            return $http.post('/book/', data);
+        },
     };
 });
