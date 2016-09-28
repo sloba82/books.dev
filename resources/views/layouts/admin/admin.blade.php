@@ -15,20 +15,20 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-    <![endif]-->       
-    <link rel="shortcut icon" 
-    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/favicon.ico') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" 
-    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" 
-    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" 
-    href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-72-precomposed.png') }}">
+    <![endif]-->
+    <link rel="shortcut icon"
+          href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/favicon.ico') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-144-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-114-precomposed.png') }}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-
 </head>
-<body <body class="" ng-controller="AdminCtrl">
+<body
+<body class="" ng-controller="AdminCtrl">
 
 
 <div ng-if="isAuthenticated()" ng-init="init()"></div>
@@ -75,10 +75,11 @@
 <script src="{{ URL::asset('app/scripts/controllers/OrderCtrl.js') }}"></script>
 
 
-        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
-        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
-        <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/angularUtils-pagination/dirPagination.js') }}"></script>
 
 
 </body>

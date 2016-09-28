@@ -52,6 +52,11 @@ app.controller('BookCtrl', ['$rootScope', '$location', '$scope', '$auth','$alert
             })
         };
 
+        $scope.sort = function(keyname){
+            $scope.sortKey = keyname;
+            $scope.reverse = !$scope.reverse;
+        }
+
         $scope.setEdit = function (){
             $scope.edit=true;
         };
