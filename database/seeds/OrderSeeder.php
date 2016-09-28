@@ -18,7 +18,7 @@ class OrderSeeder extends Seeder
         $books = [
             [
                 'user_id' => 1,
-                'books' => serialize([1,2]),
+                'books' => serialize([1,2,3,4]),
                 'status' => 'Processing',
             ],
             [

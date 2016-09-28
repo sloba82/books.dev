@@ -13,7 +13,8 @@
                     </tr>
                     <tr>
                         <th>Books</th>
-                        <td ng-repeat="names in selected_order.books_names">[[names]][[$last ? ', ' : ', ']]</td>
+                        <td><span ng-repeat="names in selected_order.books_names">
+                                [[names]][[$last ? ' ' : ', ']]</span></td>
                     </tr>
                     <tr>
                         <th>Order Status</th>
