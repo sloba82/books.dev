@@ -62,6 +62,8 @@ class OrderRepository
         if ($order)
         {
             $order->user;
+            $order->books = unserialize($order->books);
+            $order->books_names = $this->getTitleForBooks($order->books);
         }
 
         return $order;

@@ -35,7 +35,7 @@
                         <td>[[user.username]]</td>
                         <td>[[user.first_name]]</td>
                         <td>[[user.last_name]]</td>
-                        <td><button class="btn btn-primary"><a  ng-href="#/user/[[user.id]]/edit">Edit</a></button></td>
+                        <td><a  ng-href="#/user/[[user.id]]/edit"><button class="btn btn-primary">Edit</button></a></td>
                     </tr>
                     </tbody>
                     <dir-pagination-controls

@@ -10,7 +10,7 @@ var app = angular.module('uiAdmin', [
     'ui.router',
     'mgcrea.ngStrap',
     'satellizer',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
 ]);
 
 /**

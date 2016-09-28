@@ -203,8 +203,7 @@
                 <button type="submit" class="btn btn-primary"
                         ng-disabled="!edit||form.$invalid||exist==true">Update
                 </button>
-                <button type="button" class="btn btn-success"><a  ng-href="#/users">Back</a></button>
-
+                <a ng-href="#/users"><button type="button" class="btn btn-success">Back</button></a>
             </div>
         </form>
     </div>

@@ -225,14 +225,9 @@
                 </div>
             </fieldset>
             <div>
-                <button class="btn btn" type="reset">
-                Reset
-                </button>
-                <button type="submit"
-                        ng-disabled="form.$invalid||exist==true"
-                        class="btn btn-primary">
-                    Create
-                </button>
+                <button class="btn btn" type="reset">Reset</button>
+                <button type="submit" ng-disabled="form.$invalid||exist==true" class="btn btn-primary">Create</button>
+                <a  ng-href="#/users"><button class="btn btn-success">Back</button></a>
             </div>
         </form>
     </div>

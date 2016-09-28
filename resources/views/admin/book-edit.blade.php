@@ -255,7 +255,7 @@
                     <button type="submit" class="btn btn-primary"
                             ng-disabled="!edit||form.$invalid||exist==true">Update
                     </button>
-                    <button type="button" class="btn btn-success"><a  ng-href="#/books">Back</a></button>
+                    <a  ng-href="#/books"><button type="button" class="btn btn-success">Back</button></a>
 
                 </div>
             </form>

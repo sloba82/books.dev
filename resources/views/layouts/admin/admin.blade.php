@@ -12,6 +12,7 @@
     <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/prettyPhoto.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/animate.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('app/bower_components/bootstrap/dist/css/main.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -39,6 +40,9 @@
         <div ui-view></div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 <!-- END CONTAINER -->
 <!--[if lt IE 9]>
@@ -75,7 +79,6 @@
 <script src="{{ URL::asset('app/scripts/controllers/OrderCtrl.js') }}"></script>
 
 
-<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
