@@ -1,7 +1,4 @@
-<div>
-    <ul>
-        <li><a href="#/home">{{ trans('home.home') }}</a></li>
-    </ul>
+<div  class="col-md-4 col-md-offset-4">
     <div>
         <fieldset ng-controller="SignInCtrl">
 

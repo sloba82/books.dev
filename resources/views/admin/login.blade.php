@@ -1,3 +1,4 @@
+<div class="col-md-4 col-md-offset-4">
 <fieldset ng-controller="SignInCtrl">
     <legend>Login</legend>
     <form name="form" id="sign-in-form" ng-submit="submit()" novalidate
@@ -44,3 +45,4 @@
         </div>
     </form>
 </fieldset>
+</div>

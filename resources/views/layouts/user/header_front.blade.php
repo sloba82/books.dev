@@ -12,7 +12,6 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="#/home">{{ trans('master.home') }}</a></li>
                     <li><a href="#/profile">{{ trans('master.profile') }}</a></li>
                     <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
