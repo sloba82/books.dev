@@ -1,16 +1,17 @@
 <div ng-controller="BookCtrl">
     <div ng-init="getBook()">
         <div>
-            <h4>Book: <span>[[oldusername]]</span></h4>
+            <h4>Book: <span>[[selected_book.title_eng]]</span></h4>
+            <div>
             <form name="form" id='form' ng-submit="updateBook()" autocomplete="off" novalidate>
                 <fieldset ng-disabled="!edit">
                     <div class="form-group">
-                        <label for="logo">Logo</label>
+                        <label for="logo">Image</label>
                         <div>
                             <button data-toggle="modal"
                                     data-target="#upload"
                                     id="btnUpload">
-                                Upload Logo
+                                Upload Image
                             </button>
                         </div>
                     </div>
@@ -254,6 +255,7 @@
                     <button type="submit" class="btn btn-primary"
                             ng-disabled="!edit||form.$invalid||exist==true">Update
                     </button>
+                    <button type="button" class="btn btn-success"><a  ng-href="#/books">Back</a></button>
 
                 </div>
             </form>

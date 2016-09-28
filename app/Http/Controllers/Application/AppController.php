@@ -66,6 +66,8 @@ class AppController extends Controller
                 return view('admin/order-create');
             case 'order-edit.html':
                 return view('admin/order-edit');
+            case 'order-view.html':
+                return view('admin/order-view');
             case 'books.html':
                 return view('admin/books');
             case 'book-create.html':

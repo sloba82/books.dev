@@ -35,7 +35,7 @@
                     <td>[[book.title_eng]]</td>
                     <td>[[book.title_srb]]</td>
                     <td>[[book.discription_short]]</td>
-                    <td><button class="btn-primary"><a  ng-href="#/book/[[book.id]]">Edit</a></button></td>
+                    <td><button class="btn btn-primary"><a  ng-href="#/book/[[book.id]]/edit">Edit</a></button></td>
                 </tr>
                 </tbody>
                 <dir-pagination-controls

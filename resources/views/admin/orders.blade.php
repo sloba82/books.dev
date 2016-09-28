@@ -30,8 +30,8 @@
                     <tr dir-paginate="order in orders|filter:search|orderBy:sortKey:reverse|itemsPerPage:2">
                         <td>[[order.user.username]]</td>
                         <td>[[order.status]]</td>
-                        <td><button class="btn-primary"><a  ng-href="#/order/[[order.id]]">Edit</a></button></td>
-                        <td><button class="btn-info"><a  ng-href="">View</a></button></td>
+                        <td><button class="btn btn-primary"><a  ng-href="#/order/[[order.id]]/edit">Edit</a></button></td>
+                        <td><button class="btn btn-info"><a  ng-href="#/order/[[order.id]]">View</a></button></td>
                     </tr>
                     </tbody>
                     <dir-pagination-controls

@@ -69,14 +69,15 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('signOut', { url: '/signOut', template: null,  controller: 'SignOutCtrl', resolve: authCheck })
         .state('home-admin', {url: '/home-admin', templateUrl: '/views/home-admin.html', resolve: authCheck })
         .state('users', {url: '/users', templateUrl: '/views/users.html', resolve: authCheck })
-        .state('user-edit', {url: '/user/{id}', templateUrl: '/views/user-edit.html', resolve: authCheck })
+        .state('user-edit', {url: '/user/{id}/edit', templateUrl: '/views/user-edit.html', resolve: authCheck })
         .state('user-create', {url: '/user', templateUrl: '/views/user-create.html', resolve: authCheck })
         .state('books', {url: '/books', templateUrl: '/views/books.html', resolve: authCheck })
-        .state('book-edit', {url: '/book/{id}', templateUrl: '/views/book-edit.html', resolve: authCheck })
+        .state('book-edit', {url: '/book/{id}/edit', templateUrl: '/views/book-edit.html', resolve: authCheck })
         .state('book-create', {url: '/book', templateUrl: '/views/book-create.html', resolve: authCheck })
         .state('orders', {url: '/orders', templateUrl: '/views/orders.html', resolve: authCheck })
-        .state('order-edit', {url: '/order/{id}', templateUrl: '/views/order-edit.html', resolve: authCheck })
+        .state('order-edit', {url: '/order/{id}/edit', templateUrl: '/views/order-edit.html', resolve: authCheck })
         .state('order-create', {url: '/order', templateUrl: '/views/order-create.html', resolve: authCheck })
+        .state('order-view', {url: '/order/{id}', templateUrl: '/views/order-view.html', resolve: authCheck })
 
     $httpProvider.interceptors.push(function($q, $injector) {
         return {
