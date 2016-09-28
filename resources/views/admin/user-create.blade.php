@@ -225,8 +225,7 @@
                 </div>
             </fieldset>
             <div>
-                <button type="reset"
-                ">
+                <button class="btn btn" type="reset">
                 Reset
                 </button>
                 <button type="submit"
