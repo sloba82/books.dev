@@ -1,7 +1,9 @@
 <div role="main" class="container theme-showcase" ng-controller="OrderCtrl">
     <div class="col-lg-8">
         <div class="page-header">
-            <h3>Order for: <span class="semi-bold">[[selected_order.user.username]]</span></h3>
+            <h3>Order for: <span class="semi-bold">
+                    [[selected_order.user.first_name]] [[selected_order.user.last_name]]
+                </span></h3>
         </div>
         <div class="bs-component" ng-if="isAuthenticated()">
             <div ng-init="getOrder()">
