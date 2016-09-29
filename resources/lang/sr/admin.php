@@ -19,4 +19,7 @@ return [
     'create_book' => 'Nova knjiga',
     'orders' => 'Porudžbine',
     'create_order' => 'Nova porudžbina',
+    'all_books' => 'Sve knjige',
+    'all_orders' => 'Sve porudžbine',
+    'all_users' => 'Svi korisnici'
 ];

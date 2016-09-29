@@ -13,5 +13,11 @@ app.factory('OrderFactory', function($http) {
         getOrder : function(id){
             return $http.get('/order/' + id);
         },
+        updateOrder : function (id, data) {
+            return $http.put('/order/' + id, data);
+        },
+        createOrder : function (data) {
+            return $http.post('/order', + data);
+        }
     };
 });

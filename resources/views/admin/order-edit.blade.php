@@ -32,12 +32,12 @@
                             <select  required
                                      id="book_id"
                                      name="book_id"
-                                     ng-model="selected_order.book_id"
+                                     ng-model="selected_order.books"
                                      class="form-control"
                                      ng-init="getAllBooks()" multiple>
                                 <option ng-repeat="book in all_books"
                                         value="[[book.id]]"
-                                        ng-selected="all_books.indexof(selected_order.books)">
+                                        ng-selected="book.indexof(selected_order.books)">
                                     [[book.title_eng]]
                                 </option>
                             </select>

@@ -32,6 +32,46 @@ app.controller('OrderCtrl', ['$rootScope', '$location', '$scope', '$auth','$aler
             })
         };
 
+        $scope.updateOrder = function () {
+            OrderFactory.updateOrder($stateParams.id, $scope.selected_order).then(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.edit=false;
+            }).catch(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+
+            });
+        };
+
+        $scope.createOrder = function () {
+            OrderFactory.createOrder($scope.new_order).then(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.new_order = {};
+                $scope.resetForm();
+            }).catch(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            });
+        };
+
         $scope.getAllBooks = function () {
             BookFactory.getAllBooks().then(function (response) {
                 $scope.all_books = response.data;
@@ -42,7 +82,13 @@ app.controller('OrderCtrl', ['$rootScope', '$location', '$scope', '$auth','$aler
         $scope.getAllUsers = function () {
             UserFactory.getAllUsers().then(function (response) {
                 $scope.users = response.data;
+                jQuery("#username").select2();
             })
+        };
+
+        $scope.resetForm = function () {
+            $scope.form.$setPristine();
+            $scope.form.$setUntouched();
         };
 
         $scope.setEdit = function (){
@@ -52,11 +98,6 @@ app.controller('OrderCtrl', ['$rootScope', '$location', '$scope', '$auth','$aler
         $scope.sort = function (keyname) {
             $scope.sortKey = keyname;
             $scope.reverse = !$scope.reverse;
-        }
-
-        $scope.resetForm = function () {
-            $scope.form.$setPristine();
-            $scope.form.$setUntouched();
         };
 
     }]);

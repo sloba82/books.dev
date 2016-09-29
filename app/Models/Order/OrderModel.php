@@ -46,7 +46,7 @@ class OrderModel extends Model
     public static $rulesUpdate = [
         'user_id' => 'required|exists:users,id',
         'books' => 'required|min:1|max:126',
-        'status' => 'required',
+        'status' => 'required|max:10',
     ];
 
     /**
