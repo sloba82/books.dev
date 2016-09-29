@@ -146,6 +146,11 @@ app.controller('UserCtrl', ['$rootScope', '$scope', '$alert','$auth','$location'
             }
         });
 
+        $scope.sort = function (keyname) {
+            $scope.sortKey = keyname;
+            $scope.reverse = !$scope.reverse;
+        }
+
         $scope.resetForm = function () {
             $scope.form.$setPristine();
             $scope.form.$setUntouched();

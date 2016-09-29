@@ -26,6 +26,10 @@
                             <span class="glyphicon sort-icon" ng-show="sortKey=='last_name'"
                                   ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
                         </th>
+                        <th ng-click="sort('phone')">Phone
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='phone'"
+                                  ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -35,6 +39,7 @@
                         <td>[[user.username]]</td>
                         <td>[[user.first_name]]</td>
                         <td>[[user.last_name]]</td>
+                        <td>[[user.phone]]</td>
                         <td><a  ng-href="#/user/[[user.id]]/edit"><button class="btn btn-primary">Edit</button></a></td>
                     </tr>
                     </tbody>

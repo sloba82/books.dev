@@ -49,6 +49,11 @@ app.controller('OrderCtrl', ['$rootScope', '$location', '$scope', '$auth','$aler
             $scope.edit=true;
         };
 
+        $scope.sort = function (keyname) {
+            $scope.sortKey = keyname;
+            $scope.reverse = !$scope.reverse;
+        }
+
         $scope.resetForm = function () {
             $scope.form.$setPristine();
             $scope.form.$setUntouched();
