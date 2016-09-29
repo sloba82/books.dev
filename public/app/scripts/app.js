@@ -11,9 +11,6 @@ var app = angular.module('uiApp', [
     'ui.router',
     'mgcrea.ngStrap',
     'satellizer',
-    // 'adminControllers',
-    // 'adminDirectives',
-    // 'tableService',
 ]);
 
 var authCheck = {
@@ -54,6 +51,7 @@ app.run(function ($rootScope, $window) {
      *
      * @type {{}}
      */
+    $window.localStorage.clear();
     $rootScope.user =
         ($window.localStorage.getItem('user') != null ) ? JSON.parse($window.localStorage.getItem('user')) : null;
 });
@@ -71,7 +69,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     $stateProvider
 
         .state('signIn', {url: '/signIn', templateUrl: '/views/signIn.html', resolve: loginCheck})
-        .state('signOut', {url: '/signOut', template: 'signIn', controller: 'SignOutCtrl', resolve: authCheck})
+        .state('signOut', { url: '/signOut', template: null,  controller: 'SignOutCtrl', resolve: authCheck })
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
         .state('home', {url: '/home', templateUrl: '/views/home.html'})
