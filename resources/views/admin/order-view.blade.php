@@ -14,6 +14,10 @@
                         <td>[[selected_order.user.username]]</td>
                     </tr>
                     <tr>
+                        <th>User Phone #</th>
+                        <td>[[selected_order.user.phone]]</td>
+                    </tr>
+                    <tr>
                         <th>Books</th>
                         <td><span ng-repeat="names in selected_order.books_names">
                                 [[names]][[$last ? ' ' : ', ']]</span></td>

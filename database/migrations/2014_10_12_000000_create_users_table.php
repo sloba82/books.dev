@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name', 32);
             $table->string('address', 32);
             $table->string('city', 32);
+            $table->string('phone', 32);
             $table->string('medical_institution', 32);
             $table->integer('role');
             $table->string('token', 32);

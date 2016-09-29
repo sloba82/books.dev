@@ -139,6 +139,37 @@
                     </div>
                 </div>
                 <div>
+                    <label for="phone">Phone #</label>
+                    <div class="controls">
+                        <input id="phone"
+                               name="phone"
+                               type="text"
+                               placeholder="Phone number"
+                               class="form-control"
+                               required
+                               ng-model="selected_user.phone"
+                               ng-pattern="^[0-9-/]*$"
+                               ng-minlength="9"
+                               ng-maxlength="16">
+                        <span class="text-danger"
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.required">
+                                            {{ trans('user.required') }}
+                                        </span>
+                        <span class="text-danger"
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.minlength">
+                                            {{ trans('user.phone_minlength') }}
+                                        </span>
+                        <span class="text-danger"
+                              ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.maxlength">
+                                            {{ trans('user.phone_maxlength') }}
+                                        </span>
+                        <span class="text-danger"
+                              ng-show="(form.phone.$dirty || form.$submitted) && form.phone.$error.pattern">
+                                            {{ trans('user.phone_pattern') }}
+                                        </span>
+                    </div>
+                </div>
+                <div>
                     <label for="medical_institution">Medical Institution</label>
                     <div class="controls">
                         <input id="medical_institution"

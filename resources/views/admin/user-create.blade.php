@@ -139,16 +139,17 @@
                     </div>
                 </div>
                 <div>
-                    <label for="city">City</label>
+                    <label for="phone">Phone #</label>
                     <div class="controls">
-                        <input id="city"
-                               name="city"
+                        <input id="phone"
+                               name="phone"
                                type="text"
-                               placeholder="City"
+                               placeholder="Phone number"
                                class="form-control"
                                required
-                               ng-model="user_create.city"
-                               ng-minlength="2"
+                               ng-model="user_create.phone"
+                               ng-pattern="^[0-9-/]*$"
+                               ng-minlength="9"
                                ng-maxlength="16">
                         <span class="text-danger"
                               ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.required">
@@ -156,11 +157,15 @@
                                         </span>
                         <span class="text-danger"
                               ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.minlength">
-                                            {{ trans('user.city_minlength') }}
+                                            {{ trans('user.phone_minlength') }}
                                         </span>
                         <span class="text-danger"
                               ng-show="(form.city.$dirty || form.$submitted) && form.city.$error.maxlength">
-                                            {{ trans('user.city_maxlength') }}
+                                            {{ trans('user.phone_maxlength') }}
+                                        </span>
+                        <span class="text-danger"
+                              ng-show="(form.phone.$dirty || form.$submitted) && form.phone.$error.pattern">
+                                            {{ trans('user.phone_pattern') }}
                                         </span>
                     </div>
                 </div>
