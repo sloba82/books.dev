@@ -32,18 +32,19 @@
 
 <body ng-controller="HomeCtrl" ng-cloak ng-init="init()">
 
-<div ng-include=" 'views/header_front.html'"></div>
+<!--nav-->
+<div ng-include="'views/header_front.html'"></div>
+
+<!--content-->
 <div ng-if="isAuthenticated()">
     <nav>
         <div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div id="main-menu">
 
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>>
+        </div>
     </nav>
 </div>
-
 
 <div ng-if="!isAuthenticated()">
 
@@ -53,7 +54,9 @@
     </div>
 </div>
 
-<!-- END CONTAINER -->
+<!--footer-->
+<div ng-include="'views/footer.html'"></div>
+
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
 <script src="bower_components/json3/lib/json3.min.js"></script>
@@ -83,6 +86,7 @@
 <script src="{{ URL::asset('app/scripts/controllers/UserCtrl.js') }}">></script>
 <script src="{{ URL::asset('app/scripts/controllers/BookCtrl.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/services/BookFactory.js') }}"></script>
+<script src="{{ URL::asset('app/scripts/services/HomeFactory.js') }}"></script>
 
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>

@@ -51,7 +51,7 @@ class AppController extends Controller
             case 'header.html':
                 return view('layouts/admin/header');
             case 'footer.html':
-                return view('layouts/footer');
+                return view('layouts/user/footer');
             case 'header_front.html':
                 return view('layouts/user/header_front');
             case 'users.html':
