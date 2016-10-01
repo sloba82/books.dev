@@ -3,4 +3,10 @@
     right: 15px;
     top: 100px;
     background-color: #428bca;
-    color: white; }
+    color: white;
+}
+
+body, header {
+    padding-right:0px !important;
+    margin-right:0px !important;
+}

@@ -5,8 +5,8 @@
 /**
  * The home controller.
  */
-app.controller('HomeCtrl', ['$rootScope', '$scope', '$alert', '$auth', '$location', '$window', 'UserFactory', 'HomeFactory',
-    function ($rootScope, $scope, $alert, $auth, $location, $window, UserFactory, HomeFactory) {
+app.controller('HomeCtrl', ['$rootScope', '$scope', '$alert', '$auth', '$location', '$window', 'UserFactory', 'HomeFactory', '$stateParams',
+    function ($rootScope, $scope, $alert, $auth, $location, $window, UserFactory, HomeFactory, $stateParams) {
 
         /**
          * Initializes the controller.
@@ -31,5 +31,11 @@ app.controller('HomeCtrl', ['$rootScope', '$scope', '$alert', '$auth', '$locatio
             HomeFactory.getAllBooks().then(function (response) {
                 $scope.books = response.data;
             })
-        }
+        };
+
+        $scope.getBook = function () {
+            HomeFactory.getBook($stateParams.id).then(function (response) {
+                $scope.book = response.data;
+            })
+        };
     }]);

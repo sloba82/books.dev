@@ -15,7 +15,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function getAllBooks()
     {
         $bookRepo = new BookRepository();
         $books = $bookRepo->getAllBooks();
@@ -26,5 +26,24 @@ class HomeController extends Controller
         }
 
         return response()->json($books, 200);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getBook($id)
+    {
+        $bookRepo = new BookRepository();
+        $book = $bookRepo->getBookById($id);
+
+        if (!$book)
+        {
+            return response()->json([ 'message' => trans('response.not_found') ], 404);
+        }
+
+        return response()->json($book, 200);
     }
 }
