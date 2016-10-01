@@ -12,10 +12,12 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
+    'login' => 'Ulogujte se',
+    'home' => 'Pocetna',
     'profile' => 'Profil',
     'signin' => 'Prijavi se',
     'signout' => 'Odjavi se',
     'contact' => 'Kontakt',
     'basket' => 'Korpa',
-    'home' => 'Pocetna'
+    'register' => 'Registrujte se'
 ];

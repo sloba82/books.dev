@@ -51,8 +51,8 @@ class UserRepository
         $user->address = $params['address'];
         $user->city = $params['city'];
         $user->medical_institution = $params['medical_institution'];
-        $user->role = $params['role'];
-        $user->active = $params['active'];
+        $user->role = $params['role'] ? $params['role'] : null;
+        $user->active = $params['active'] ? $params['active'] : null;
 
         return $user->save();
     }

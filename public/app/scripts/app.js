@@ -69,6 +69,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
     $stateProvider
 
         .state('signIn', {url: '/signIn', templateUrl: '/views/signIn.html', resolve: loginCheck})
+        .state('signUp', {url: '/signUp', templateUrl: '/views/signUp.html', resolve: loginCheck})
         .state('signOut', { url: '/signOut', template: null,  controller: 'SignOutCtrl', resolve: authCheck })
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})

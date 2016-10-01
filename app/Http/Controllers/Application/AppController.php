@@ -40,6 +40,8 @@ class AppController extends Controller
                 return view('user/contact');
             case 'signIn.html':
                 return view('user/login');
+            case 'signUp.html':
+                return view('user/register');
             case 'forgot-password.html':
                 return view('forgot-password');
             case 'password-recovery.html':

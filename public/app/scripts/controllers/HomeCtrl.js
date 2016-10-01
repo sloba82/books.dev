@@ -38,4 +38,25 @@ app.controller('HomeCtrl', ['$rootScope', '$scope', '$alert', '$auth', '$locatio
                 $scope.book = response.data;
             })
         };
+
+        $scope.createUser = function(){
+            HomeFactory.createUser($scope.user_create).then(function(response){
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+                $scope.edit=false;
+                $scope.user_create = {}
+                $scope.resetForm();
+            }).catch(function (response) {
+                $alert({
+                    content: response.data.message,
+                    animation: 'fadeZoomFadeDown',
+                    type: 'material',
+                    duration: 3
+                });
+            })
+        };
     }]);

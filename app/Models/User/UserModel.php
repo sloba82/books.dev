@@ -66,7 +66,8 @@ class UserModel extends Model
         'address' => 'required|min:8|max:32',
         'city' => 'required|min:2|max:16',
         'medical_institution' => 'required|min:8|max:64',
-        'role' => 'required|integer|exists:user_roles,id',
+        'role' => 'integer|exists:user_roles,id',
+        'active' => 'integer'
     ];
 
     /**
@@ -82,6 +83,7 @@ class UserModel extends Model
         'city' => 'required|min:2|max:16',
         'medical_institution' => 'required|min:8|max:64',
         'role' => 'required|integer|exists:user_roles,id',
+        'active' => 'required|integer'
     ];
 
     /**

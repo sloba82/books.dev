@@ -16,7 +16,8 @@
                 <li ng-if="isAuthenticated()"><a href="#/profile">{{ trans('master.profile') }}</a></li>
                 <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/basket">{{ trans('master.basket') }}</a></li>
-                <li ng-if="!isAuthenticated()"><a href="#/signIn">{{ trans('home.login') }}</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/signIn">{{ trans('master.login') }}</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#/signUp">{{ trans('master.register') }}</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/signOut">{{ trans('master.signout') }}</a></li>
             </ul>
         </div>

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User\UserModel;
 use App\Repositories\Book\BookRepository;
+use App\Repositories\User\UserRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class HomeController
@@ -45,5 +49,29 @@ class HomeController extends Controller
         }
 
         return response()->json($book, 200);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createUser(Request $request)
+    {
+        $params = $request->all();
+        $userRepo = new UserRepository();
+
+        $valid = Validator::make($params, UserModel::$rules);
+        if ($valid->fails()) {
+            return response()->json(array('message' => trans('response.invalid')), 400);
+        }
+
+        if (!$userRepo->createNewUser($params))
+        {
+            return response()->json([ 'message' => trans('response.not_created') ], 500);
+        }
+
+        return response()->json([ 'message' => trans('response.created') ], 200);
     }
 }

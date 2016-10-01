@@ -22,9 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('city', 32);
             $table->string('phone', 32);
             $table->string('medical_institution', 32);
-            $table->integer('role');
+            $table->integer('role')->nullable();
             $table->string('token', 32);
-            $table->integer('active');
+            $table->integer('active')->nullable();
             $table->timestamps();
         });
     }

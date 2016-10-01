@@ -14,8 +14,6 @@ return [
     */
 
 
-    'login' => 'Ulogujte se',
-    'home' => 'Pocetna',
     'buy' => 'Porucite',
     'info' => 'Detalji'
 ];
