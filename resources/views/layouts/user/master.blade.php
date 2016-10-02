@@ -57,7 +57,7 @@
 </div>
 
 <!--footer-->
-<div class="navbar navbar-fixed-bottom" ng-include="'views/footer.html'"></div>
+<div ng-include="'views/footer.html'"></div>
 
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
