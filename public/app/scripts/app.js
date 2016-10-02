@@ -74,6 +74,7 @@ app.config(function ($urlRouterProvider, $stateProvider, $httpProvider, $authPro
         .state('forgot_password', {url: '/forgot-password', templateUrl: '/views/forgot-password.html'})
         .state('password-recover', {url: '/password-recover', templateUrl: '/views/password-recover.html'})
         .state('home', {url: '/home', templateUrl: '/views/home.html'})
+        .state('books', {url: '/books', templateUrl: '/views/books_front.html'})
         .state('book-view', {url: '/book/{id}', templateUrl: '/views/book-view.html'})
         .state('profile', {url: '/profile', templateUrl: '/views/profile.html'})
         .state('basket', {url: '/basket', templateUrl: '/views/basket.html'})

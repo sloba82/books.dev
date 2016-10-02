@@ -30,6 +30,8 @@ class AppController extends Controller
         switch ($viewName){
             case 'home.html':
                 return view('user/home');
+            case 'books_front.html':
+                return view('user/books_front');
             case 'book-view.html':
                 return view('user/book-view');
             case 'profile.html':
@@ -56,6 +58,8 @@ class AppController extends Controller
                 return view('layouts/user/footer');
             case 'header_front.html':
                 return view('layouts/user/header_front');
+            case 'slider_front.html':
+                return view('layouts/user/slider_front');
             case 'users.html':
                 return view('admin/users');
             case 'user-create.html':

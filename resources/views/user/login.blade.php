@@ -1,4 +1,4 @@
-<div class="col-md-4 col-md-offset-4">
+<div  class="col-md-4 col-md-offset-4">
     <fieldset ng-controller="SignInCtrl">
         <legend>{{ trans('login.loginform') }}</legend>
         <form name="form" id="sign-in-form"

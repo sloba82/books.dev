@@ -1,4 +1,4 @@
-<div role="main" class="container theme-showcase" ng-controller="HomeCtrl">
+<div role="main" class="container theme-showcase">
     <div class="col-lg-8">
         <div class="page-header">
             <h3><span class="semi-bold">

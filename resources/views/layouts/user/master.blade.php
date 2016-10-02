@@ -35,13 +35,15 @@
 <!--nav-->
 <div ng-include="'views/header_front.html'"></div>
 
+
+
 <!--content-->
 <div ng-if="isAuthenticated()">
     <nav>
         <div>
             <div id="main-menu">
-
-            </div>>
+                <div ui-view></div>
+            </div>
         </div>
     </nav>
 </div>

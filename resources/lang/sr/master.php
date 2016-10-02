@@ -19,5 +19,6 @@ return [
     'signout' => 'Odjavi se',
     'contact' => 'Kontakt',
     'basket' => 'Korpa',
+    'books' => 'Knjige',
     'register' => 'Registrujte se'
 ];

@@ -13,6 +13,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/home">{{ trans('master.home') }}</a></li>
+                 <li><a href="#/books">{{ trans('master.books') }}</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/profile">{{ trans('master.profile') }}</a></li>
                 <li><a href="#/contact">{{ trans('master.contact') }}</a></li>
                 <li ng-if="isAuthenticated()"><a href="#/basket">{{ trans('master.basket') }}</a></li>
