@@ -30,6 +30,9 @@ Route::post('/check-email', 'UserController@checkEmail');
 Route::get('/home', 'HomeController@getAllBooks');
 Route::get('/home/book/{id}', 'HomeController@getBook');
 Route::post('/home/user', 'HomeController@createUser');
+//insert books to database
+Route::post('create', 'BookController@create');
+
 
 Route::group(['middleware' => ['jwt.auth','permission'], 'roles' => ['admin, user']], function () {
 

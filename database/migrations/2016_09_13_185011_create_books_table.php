@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('title_srb', 256);
             $table->text('discription_short');
             $table->text('discription_long');
-            $table->string('autor', 512);
+            $table->string('autor', 32);
             $table->integer('price');
             $table->integer('page_num');
             $table->string('deadline', 32);

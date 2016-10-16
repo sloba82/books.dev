@@ -25,7 +25,10 @@
           href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-114-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" 
+		  href="{{ URL::asset('app/bower_components/bootstrap/dist/images/ico/apple-touch-icon-57-precomposed.png') }}">
+
+
 
 
 </head>
@@ -34,6 +37,8 @@
 
 <!--nav-->
 <div ng-include="'views/header_front.html'"></div>
+
+
 
 
 
@@ -85,7 +90,7 @@
 <script src="{{ URL::asset('app/scripts/controllers/SignOutCtrl.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/controllers/HomeCtrl.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/services/UserFactory.js') }}"></script>
-<script src="{{ URL::asset('app/scripts/controllers/UserCtrl.js') }}">></script>
+<script src="{{ URL::asset('app/scripts/controllers/UserCtrl.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/controllers/BookCtrl.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/services/BookFactory.js') }}"></script>
 <script src="{{ URL::asset('app/scripts/services/HomeFactory.js') }}"></script>
@@ -94,6 +99,9 @@
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.prettyPhoto.js') }}"></script>
 <script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/main.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/html5shiv.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/jquery.isotope.min.js') }}"></script>
+<script src="{{ URL::asset('app/bower_components/bootstrap/dist/js/respond.min.js') }}"></script>
 
 
 </body>

@@ -80,5 +80,6 @@ class BookRepository
         $book->book_cover = $params['book_cover'];
 
         return $book->save();
+        var_dump($book->save());
     }
 }

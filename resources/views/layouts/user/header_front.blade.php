@@ -7,10 +7,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img
+            <a class="navbar-brand" href="#/home"><img
                     src="{{ URL::asset('app/bower_components/bootstrap/dist/images/logo.png') }}" alt="logo"></a>
         </div>
-        <div class="collapse navbar-collapse">
+		
+		
+        <div class="collapse navbar-collapse" >
+			<div class="col-md-4 col-sm-4" style="margin:20px 0px 0px 0px;">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group form-group-sm">
+					<input type="text" class="form-control input-sm" placeholder="naslov ili autor">
+					</div>
+					<button type="submit" class="btn btn-success btn-sm">Pretraga</button>
+					</form>
+			</div>
+		
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/home">{{ trans('master.home') }}</a></li>
                  <li><a href="#/books">{{ trans('master.books') }}</a></li>

@@ -8,6 +8,7 @@ use App\UtilityHelpers\UtilityHelpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
 class BookController extends Controller
 {
 
@@ -35,14 +36,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = $this->bookHandler->getAllBooks();
-
-        if (empty($books))
-        {
-            return response()->json(['message' => trans('response.nodata')], 404);
-        }
-
-        return response()->json($books, 200);
+       return view ['/book'];
     }
 
     /**
@@ -50,10 +44,29 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $books = new BookModel();
+        $books->photo =$request->photo;
+        $books->title_eng = $request->title_eng;
+        $books->title_srb = $request->title_srb;
+        $books->discription_short= $request->discription_short;
+        $books->discription_long= $request->discription_long;
+        $books->autor = $request->autor;
+        $books->price = $request->price;
+        $books->page_num = $request->page_num;
+        $books->deadline = $request->deadline;
+        $books->book_pdf= $request->book_pdf;
+        $books->book_cover = $request->book_cover;
+        $books->save();
+        
+
     }
+
+
+    
+    
 
     /**
      * Store a newly created resource in storage.
